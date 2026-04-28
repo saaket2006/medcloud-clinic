@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>MedCloud Clinical - Patient Dashboard</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/tailwind-config.js"></script>
+  <script src="js/app.js"></script>
+</head>
+
+<body class="bg-surface text-on-surface">
+  <!-- Sidebar Navigation -->
+  <aside
+    class="h-screen w-64 fixed left-0 top-0 z-40 bg-slate-50 dark:bg-slate-950 flex flex-col py-6 space-y-1 font-manrope text-sm font-medium tonal-stacking">
+    <div class="px-6 mb-8">
+      <a href="index.html" class="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+          <span class="material-symbols-outlined" data-icon="clinical_notes">clinical_notes</span>
+        </div>
+        <div>
+          <h1 class="text-lg font-black tracking-tighter text-blue-700">Atelier Health</h1>
+          <p class="text-[10px] uppercase tracking-widest text-slate-500">Cloud Core v2.4</p>
+        </div>
+      </a>
+    </div>
+    <nav class="flex-1 px-2 space-y-1">
+      <!-- Overview - Active State -->
+      <a class="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-xl mx-2 flex items-center gap-3 px-4 py-3 transition-all duration-200 ease-in-out"
+        href="patient-dashboard.html">
+        <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+        <span>Overview</span>
+      </a>
+      <a class="text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 flex items-center gap-3 px-4 py-3 transition-all duration-200 ease-in-out"
+        href="appointment-booking.html">
+        <span class="material-symbols-outlined" data-icon="event">event</span>
+        <span>Appointments</span>
+      </a>
+      <a class="text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 flex items-center gap-3 px-4 py-3 transition-all duration-200 ease-in-out"
+        href="medical-records.html">
+        <span class="material-symbols-outlined" data-icon="folder_shared">folder_shared</span>
+        <span>Patient Records</span>
+      </a>
+      <a class="text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 flex items-center gap-3 px-4 py-3 transition-all duration-200 ease-in-out"
+        href="medical-records.html">
+        <span class="material-symbols-outlined" data-icon="medication">medication</span>
+        <span>Prescriptions</span>
+      </a>
+      <a class="text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 flex items-center gap-3 px-4 py-3 transition-all duration-200 ease-in-out"
+        href="doctor-dashboard.html">
+        <span class="material-symbols-outlined" data-icon="group">group</span>
+        <span>Staff Management</span>
+      </a>
+      <a class="text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 flex items-center gap-3 px-4 py-3 transition-all duration-200 ease-in-out"
+        href="edit-profile.html">
+        <span class="material-symbols-outlined" data-icon="settings">settings</span>
+        <span>Settings</span>
+      </a>
+    </nav>
+    <div class="px-4 mt-auto space-y-4">
+      <button onclick="window.location.href='appointment-booking.html'" type="button"
+        class="w-full py-3 px-4 bg-primary text-on-primary rounded-xl font-semibold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+        <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+        New Appointment
+      </button>
+      <div class="pt-4 border-t border-slate-200/50 space-y-1">
+        <a class="text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 rounded-xl flex items-center gap-3 px-4 py-2 transition-all"
+          href="mailto:support@medcloudclinic.com?subject=Patient%20support%20request">
+          <span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+          <span>Support</span>
+        </a>
+        <a class="text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 rounded-xl flex items-center gap-3 px-4 py-2 transition-all"
+          href="mailto:support@medcloudclinic.com?subject=System%20status%20question">
+          <span class="material-symbols-outlined text-green-500" data-icon="cloud_queue">cloud_queue</span>
+          <span>System Status</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+  <!-- Main Content Area -->
+  <main class="ml-64 min-h-screen p-8 bg-surface">
+    <!-- Header Section -->
+    <header class="flex justify-between items-center mb-10">
+      <div>
+        <h2 class="text-3xl font-extrabold tracking-tight text-on-surface font-headline">Patient Dashboard</h2>
+        <p class="text-on-surface-variant mt-1">Welcome back, Alexander. Here is your health summary.</p>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="relative p-2 rounded-full hover:bg-surface-container transition-colors cursor-pointer">
+          <span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+          <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+        </div>
+        <div class="h-10 w-[1px] bg-outline-variant/30"></div>
+        <div class="group relative flex items-center gap-3 pl-2 cursor-pointer">
+          <img alt="Alexander's Profile" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary/10"
+            data-alt="portrait of a young man with a professional look, soft natural lighting, high-end corporate photography style"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7FSXWB4hGykIbSfLVD9wS3Ae0JdfbykXJPEK63H_MsspTIwE7Wwu8sfCWHsUp4Hhxqd5uiOrNb4SPnX7sMb9N-dMweOAegXF7J5rMIOsqEJxji7Ta2X2F8LeTOENDQEdXUq2BSnvhegCznZ6nj2l-deVA3sIK0GfykooR7acOsfgx5xwI_m7DXvh6LnxIqCifJcClIBosWOVO14AvtJdnG4JukVn3b2_WI_FNEJHPFDEH031ekUDPb-rUwTRBh8kbhXLz8596Affu" />
+          <div class="hidden lg:block text-right">
+            <p class="text-sm font-bold text-on-surface leading-none">Alexander Wright</p>
+            <p class="text-[11px] text-on-surface-variant uppercase tracking-tighter">Premium Patient</p>
+          </div>
+          <!-- Dropdown Menu -->
+          <div
+            class="absolute top-full right-0 mt-2 w-48 bg-surface-container-lowest border border-outline-variant/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-2 overflow-hidden">
+            <a class="flex items-center gap-3 px-4 py-2.5 text-sm text-on-surface hover:bg-surface-container-low transition-colors"
+              href="edit-profile.html">
+              <span class="material-symbols-outlined text-lg" data-icon="person">person</span>
+              <span>Edit Profile</span>
+            </a>
+            <div class="h-[1px] bg-outline-variant/10 my-1"></div>
+            <a class="flex items-center gap-3 px-4 py-2.5 text-sm text-error hover:bg-error/5 transition-colors"
+              href="index.html">
+              <span class="material-symbols-outlined text-lg" data-icon="logout">logout</span>
+              <span>Logout</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Bento Grid Layout -->
+    <div class="grid grid-cols-12 gap-6">
+      <!-- Top Stats Card 1: Appointments -->
+      <div class="col-span-12 md:col-span-4 bg-surface-container-lowest p-6 rounded-xl shadow-ambient">
+        <div class="flex justify-between items-start mb-4">
+          <div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+          </div>
+          <span class="text-[10px] font-bold text-primary tracking-widest uppercase">Upcoming</span>
+        </div>
+        <p class="text-on-surface-variant text-sm font-medium">Next Appointment</p>
+        <h3 class="text-4xl font-extrabold text-on-surface my-1">03</h3>
+        <p class="text-xs text-on-surface-variant flex items-center gap-1 mt-2">
+          <span class="material-symbols-outlined text-xs text-secondary" data-icon="verified">verified</span>
+          Confirmed for this week
+        </p>
+      </div>
+      <!-- Top Stats Card 2: Record Update -->
+      <div class="col-span-12 md:col-span-4 bg-surface-container-lowest p-6 rounded-xl shadow-ambient">
+        <div class="flex justify-between items-start mb-4">
+          <div class="w-12 h-12 bg-secondary-container rounded-xl flex items-center justify-center text-secondary">
+            <span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+          </div>
+          <span class="text-[10px] font-bold text-secondary tracking-widest uppercase">Records</span>
+        </div>
+        <p class="text-on-surface-variant text-sm font-medium">Last Medical Update</p>
+        <h3 class="text-4xl font-extrabold text-on-surface my-1">12h ago</h3>
+        <p class="text-xs text-on-surface-variant flex items-center gap-1 mt-2">
+          <span class="material-symbols-outlined text-xs text-tertiary" data-icon="labs">labs</span>
+          Lab results uploaded
+        </p>
+      </div>
+      <!-- Top Stats Card 3: Notifications/Alerts -->
+      <div class="col-span-12 md:col-span-4 bg-surface-container-low p-6 rounded-xl relative overflow-hidden">
+        <div class="relative z-10 h-full flex flex-col justify-between">
+          <div>
+            <h4 class="font-headline font-bold text-on-surface">Cloud Status</h4>
+            <div class="flex items-center gap-2 mt-2">
+              <span class="flex h-2 w-2 rounded-full bg-secondary animate-pulse"></span>
+              <span class="text-sm text-secondary font-medium">System Healthy</span>
+            </div>
+          </div>
+          <p class="text-xs text-on-surface-variant mt-4 leading-relaxed">
+            All medical instances are synchronized with your local health cluster.
+          </p>
+        </div>
+        <!-- Glassmorphism Accent -->
+        <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+      </div>
+      <!-- Main Section: My Appointments -->
+      <div class="col-span-12 lg:col-span-8 space-y-6">
+        <div class="bg-surface-container-lowest rounded-xl p-8 shadow-ambient">
+          <div class="flex justify-between items-center mb-8">
+            <h3 class="text-xl font-bold font-headline text-on-surface">My Appointments</h3>
+            <button class="text-sm font-semibold text-primary hover:underline transition-all">View Full History</button>
+          </div>
+          <div class="space-y-4">
+            <!-- Appointment Row 1 -->
+            <div
+              class="flex items-center justify-between p-4 bg-surface rounded-xl hover:bg-surface-container-low transition-colors group">
+              <div class="flex items-center gap-4">
+                <img alt="Dr. Sarah Smith" class="w-12 h-12 rounded-full object-cover"
+                  data-alt="portrait of a female doctor with a stethoscope, clean white clinical background, warm professional lighting"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuADMxcEe23s629vZNIREjMaYtkW2LmP7OYwxUazQ_ez8s31VlTrCZ-1rSX7qgTM-Uu-5VmwdgA_36bMgnbHMEpjmU53uSCaw8mjdFrKSKuE9wA2VYW87oTq2rejTzolA80Wv2JKY4rlPgw8MxKKAN-TkyPGiyyjUsPlNEV07AcYvAkIlpQWVK1wjrZfgcoVvgpr42PoDoaByzo1CLtSYbszaTUTCepKOQK6JyeipASDfJCRsnzN1BZbU26OIRfBlKF_n8iY_s-W4bPm" />
+                <div>
+                  <p class="text-on-surface font-bold">Dr. Sarah Smith</p>
+                  <p class="text-xs text-on-surface-variant">General Cardiology • 10:30 AM</p>
+                </div>
+              </div>
+              <div class="text-right flex items-center gap-6">
+                <div class="hidden sm:block">
+                  <p class="text-sm font-medium text-on-surface">Oct 24, 2023</p>
+                  <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Main Building, Wing B</p>
+                </div>
+                <span
+                  class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[11px] font-bold rounded-full uppercase tracking-tighter">Confirmed</span>
+                <span
+                  class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity"
+                  data-icon="chevron_right">chevron_right</span>
+              </div>
+            </div>
+            <!-- Appointment Row 2 -->
+            <div
+              class="flex items-center justify-between p-4 bg-surface rounded-xl hover:bg-surface-container-low transition-colors group">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary">
+                  <span class="material-symbols-outlined" data-icon="neurology">neurology</span>
+                </div>
+                <div>
+                  <p class="text-on-surface font-bold">Dr. James Wilson</p>
+                  <p class="text-xs text-on-surface-variant">Neuro-Consultation • 02:15 PM</p>
+                </div>
+              </div>
+              <div class="text-right flex items-center gap-6">
+                <div class="hidden sm:block">
+                  <p class="text-sm font-medium text-on-surface">Oct 26, 2023</p>
+                  <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Digital Tele-Consult</p>
+                </div>
+                <span
+                  class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[11px] font-bold rounded-full uppercase tracking-tighter">Pending</span>
+                <span
+                  class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity"
+                  data-icon="chevron_right">chevron_right</span>
+              </div>
+            </div>
+            <!-- Appointment Row 3 -->
+            <div
+              class="flex items-center justify-between p-4 bg-surface rounded-xl hover:bg-surface-container-low transition-colors group">
+              <div class="flex items-center gap-4">
+                <img alt="Dr. Elena Rodriguez" class="w-12 h-12 rounded-full object-cover"
+                  data-alt="portrait of a Hispanic female medical researcher in a lab coat, bright sterile environment, sophisticated professional photography"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuChPAZoKvzY0orvzdSV5qLiFmXMuQ-2ym-TkvM7pJny5_t2jAUR52kLqzXw83mb6whJ8sJ1DxWvnIppoHmUgB_PTLv7MTuqq3nEkfAnXqUSZ5PgNYtzWqjikYzVbpk6VD9nqU6-e3tdVifpx78_BmNxcqYGgGNQdGy7IW_MydSRqniATUcFtx_964CFDWNBIF9INBzEm0ESjv-VkJBAYyQ3Dktv-pHHDIpJETQ6IjN6RxwRiok1XMOTa5jKzJqlFKde6iTo3LAzgjQJ" />
+                <div>
+                  <p class="text-on-surface font-bold">Dr. Elena Rodriguez</p>
+                  <p class="text-xs text-on-surface-variant">Diagnostic Screening • 09:00 AM</p>
+                </div>
+              </div>
+              <div class="text-right flex items-center gap-6">
+                <div class="hidden sm:block">
+                  <p class="text-sm font-medium text-on-surface">Oct 30, 2023</p>
+                  <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Diagnostic Center 04</p>
+                </div>
+                <span
+                  class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[11px] font-bold rounded-full uppercase tracking-tighter">Confirmed</span>
+                <span
+                  class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity"
+                  data-icon="chevron_right">chevron_right</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Doctor Availability Widget -->
+        <div class="bg-surface-container-lowest rounded-xl p-8 shadow-ambient">
+          <h3 class="text-xl font-bold font-headline text-on-surface mb-6">Available Specialists Today</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div
+              class="p-4 border border-outline-variant/15 rounded-xl flex items-center gap-4 hover:bg-primary/5 transition-colors cursor-pointer group">
+              <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary" data-icon="monitor_heart">monitor_heart</span>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-on-surface">Cardiology</p>
+                <p class="text-[11px] text-secondary font-semibold">4 Slots Available</p>
+              </div>
+              <span
+                class="material-symbols-outlined ml-auto text-primary group-hover:translate-x-1 transition-transform"
+                data-icon="arrow_forward">arrow_forward</span>
+            </div>
+            <div
+              class="p-4 border border-outline-variant/15 rounded-xl flex items-center gap-4 hover:bg-primary/5 transition-colors cursor-pointer group">
+              <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary" data-icon="psychology">psychology</span>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-on-surface">Psychiatry</p>
+                <p class="text-[11px] text-secondary font-semibold">2 Slots Available</p>
+              </div>
+              <span
+                class="material-symbols-outlined ml-auto text-primary group-hover:translate-x-1 transition-transform"
+                data-icon="arrow_forward">arrow_forward</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Side Section: Quick Action & Notification Center -->
+      <div class="col-span-12 lg:col-span-4 space-y-6">
+        <!-- Quick Action Button Card -->
+        <div class="bg-primary p-1 rounded-2xl shadow-lg shadow-primary/20">
+          <div class="bg-primary rounded-xl p-6 text-on-primary">
+            <h4 class="text-lg font-bold font-headline mb-2">Need a checkup?</h4>
+            <p class="text-sm text-primary-fixed/80 mb-6 leading-relaxed">Schedule a consultation with our world-class
+              specialists in just a few clicks.</p>
+            <button onclick="window.location.href='appointment-booking.html'" type="button"
+              class="w-full py-4 bg-white text-primary rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary-fixed transition-colors active:scale-[0.98]">
+              <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+              Book New Appointment
+            </button>
+          </div>
+        </div>
+        <!-- Recent Notifications -->
+        <div class="bg-surface-container-lowest rounded-xl p-6 shadow-ambient">
+          <div class="flex items-center justify-between mb-6">
+            <h4 class="font-headline font-bold text-on-surface">Notifications</h4>
+            <span class="material-symbols-outlined text-on-surface-variant cursor-pointer"
+              data-icon="more_horiz">more_horiz</span>
+          </div>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="mt-1 w-2 h-2 rounded-full bg-primary flex-shrink-0"></div>
+              <div>
+                <p class="text-sm font-bold text-on-surface leading-snug">Appointment Confirmed</p>
+                <p class="text-xs text-on-surface-variant mt-1">Your session with Dr. Sarah Smith is confirmed for Oct
+                  24th.</p>
+                <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-tighter">2 mins ago</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="mt-1 w-2 h-2 rounded-full bg-secondary flex-shrink-0"></div>
+              <div>
+                <p class="text-sm font-bold text-on-surface leading-snug">New Lab Results</p>
+                <p class="text-xs text-on-surface-variant mt-1">Blood work analysis from Clinical Labs is now available.
+                </p>
+                <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-tighter">4 hours ago</p>
+              </div>
+            </div>
+            <div class="flex gap-4 opacity-60">
+              <div class="mt-1 w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></div>
+              <div>
+                <p class="text-sm font-medium text-on-surface leading-snug">System Update</p>
+                <p class="text-xs text-on-surface-variant mt-1">Cloud Core v2.4 successfully deployed to your region.
+                </p>
+                <p class="text-[10px] text-slate-400 mt-2 uppercase tracking-tighter">Yesterday</p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="w-full mt-6 py-3 text-sm font-semibold text-on-surface-variant border border-outline-variant/20 rounded-xl hover:bg-surface transition-colors">
+            Clear All Notifications
+          </button>
+        </div>
+        <!-- Medical Health Chip (Asymmetric Decorative Element) -->
+        <div
+          class="bg-gradient-to-br from-tertiary to-tertiary-container rounded-xl p-6 text-on-tertiary shadow-lg relative overflow-hidden">
+          <div class="relative z-10">
+            <span class="material-symbols-outlined text-3xl mb-2" data-icon="verified_user">verified_user</span>
+            <h4 class="font-bold font-headline text-lg">Health Guard™</h4>
+            <p class="text-xs text-tertiary-fixed/80 mt-2 leading-relaxed">Your data is secured with AES-256 clinical
+              encryption and monitored 24/7 by MedCloud Core.</p>
+          </div>
+          <!-- Abstract Background Shape -->
+          <div class="absolute -top-10 -right-10 w-32 h-32 border-8 border-white/5 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>System Analytics | MedCloud Clinic</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/tailwind-config.js"></script>
+  <script src="js/app.js"></script>
+</head>
+<body class="bg-surface font-manrope">
+  <!-- Top Navigation Bar -->
+  <header class="fixed top-0 left-0 right-0 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl z-50 flex items-center justify-between px-8 border-b border-slate-100 dark:border-slate-800">
+    <div class="flex items-center space-x-8">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+          <span class="material-symbols-outlined text-sm">clinical_notes</span>
+        </div>
+        <h2 class="text-lg font-black tracking-tighter text-blue-700 dark:text-blue-500">Atelier Health</h2>
+      </a>
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+          href="admin-dashboard.html">Dashboard</a>
+        <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+          href="patient-dashboard.html">Patients</a>
+        <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+          href="appointment-booking.html">Schedules</a>
+        <a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 dark:border-blue-400 pb-1"
+          href="analytics.html">Analytics</a>
+      </nav>
+    </div>
+    <div class="flex items-center space-x-4">
+      <div class="relative group">
+        <button
+          class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95 duration-200">
+          <span class="material-symbols-outlined">notifications</span>
+        </button>
+        <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full ring-2 ring-white"></span>
+      </div>
+      <button
+        class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95 duration-200">
+        <span class="material-symbols-outlined">cloud_done</span>
+      </button>
+      <div class="relative group">
+        <div
+          class="h-8 w-8 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden cursor-pointer ring-2 ring-transparent group-hover:ring-primary/20 transition-all">
+          <img alt="User Profile" class="object-cover w-full h-full"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQCz9uA_1Ur5jTH9givu4DKYeyeIhDbMHLvX7IXZQsGWgj0I0THPOQDwa25Ha0r9pdII6AS8LRTeHAZuY7KDsXffz2HWMpivBPOgeuVDfHbzzHwH_gB9L7d-UrK_ax2HBKAFpULIL_9-DLKHrRc7wd-5WDaMAv7Zqx6wqM17qliDTz7BZcNR3GBgZOY9xiJsPeIAOmFz3XGf1QU_qhewAD3z69FbnfbqTB52CMXDBJ38BWKxeIKvRp4-zD3WoytRawPdSAIpniATiW" />
+        </div>
+        <!-- Dropdown Menu -->
+        <div
+          class="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 py-2 hidden group-hover:block z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+          <a class="flex items-center px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+            href="edit-profile.html">
+            <span class="material-symbols-outlined mr-3 text-lg">person_edit</span>
+            <span class="font-medium">Edit Profile</span>
+          </a>
+          <div class="h-[1px] bg-slate-100 dark:bg-slate-700 my-1 mx-2"></div>
+          <a class="flex items-center px-4 py-2.5 text-sm text-error hover:bg-error/5 transition-colors" href="login.html">
+            <span class="material-symbols-outlined mr-3 text-lg">logout</span>
+            <span class="font-medium">Logout</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar Navigation -->
+  <aside class="fixed left-0 top-16 bottom-0 w-64 bg-white dark:bg-slate-900 border-r border-slate-100 dark:border-slate-800 py-6 flex flex-col z-40">
+    <div class="px-6 mb-8">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+          <span class="material-symbols-outlined">clinical_notes</span>
+        </div>
+        <div>
+          <h2 class="text-lg font-black tracking-tighter text-blue-700 dark:text-blue-500">Atelier Health</h2>
+          <p class="text-[10px] uppercase tracking-widest text-slate-400">Cloud Core v2.4</p>
+        </div>
+      </a>
+    </div>
+    <nav class="flex-1 px-2 space-y-1">
+      <a class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 transition-all duration-200 ease-in-out"
+        href="admin-dashboard.html">
+        <span class="material-symbols-outlined mr-3">dashboard</span>
+        <span>Overview</span>
+      </a>
+      <a class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 transition-all duration-200 ease-in-out"
+        href="appointment-booking.html">
+        <span class="material-symbols-outlined mr-3">event</span>
+        <span>Appointments</span>
+      </a>
+      <a class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 transition-all duration-200 ease-in-out"
+        href="medical-records.html">
+        <span class="material-symbols-outlined mr-3">folder_shared</span>
+        <span>Patient Records</span>
+      </a>
+      <a class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 transition-all duration-200 ease-in-out"
+        href="medical-records.html">
+        <span class="material-symbols-outlined mr-3">medication</span>
+        <span>Prescriptions</span>
+      </a>
+      <a class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 transition-all duration-200 ease-in-out"
+        href="admin-dashboard.html">
+        <span class="material-symbols-outlined mr-3">group</span>
+        <span>Staff Management</span>
+      </a>
+      <a class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 transition-all duration-200 ease-in-out"
+        href="edit-profile.html">
+        <span class="material-symbols-outlined mr-3">settings</span>
+        <span>Settings</span>
+      </a>
+    </nav>
+    <div class="px-6 mt-6">
+      <button
+        class="w-full py-3 bg-primary text-on-primary rounded-xl font-semibold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+        <span class="material-symbols-outlined text-lg">add</span>
+        New Appointment
+      </button>
+    </div>
+    <div class="px-2 pt-6 mt-6 border-t border-slate-200 dark:border-slate-800">
+      <a class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 transition-all"
+        href="mailto:support@medcloudclinic.com?subject=Analytics%20support%20request">
+        <span class="material-symbols-outlined mr-3">help_outline</span>
+        <span>Support</span>
+      </a>
+      <div class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 mx-2">
+        <span class="material-symbols-outlined mr-3 text-secondary">cloud_queue</span>
+        <div class="flex flex-col">
+          <span class="text-xs font-bold text-slate-900">System Status</span>
+          <span class="text-[10px] text-secondary font-semibold">Operational</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <!-- Main Content Canvas -->
+  <main class="ml-64 pt-16 min-h-screen">
+    <div class="p-8 max-w-7xl mx-auto space-y-8">
+      <!-- Filters & Actions Row -->
+      <section class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h1 class="text-3xl font-extrabold tracking-tight text-on-surface">System Analytics</h1>
+          <p class="text-on-surface-variant text-sm mt-1">Institutional performance and clinical efficiency metrics</p>
+        </div>
+        <button
+          class="flex items-center gap-2 bg-primary text-on-primary px-5 py-2.5 rounded-xl font-bold hover:opacity-90 transition-opacity active:scale-95">
+          <span class="material-symbols-outlined text-lg">description</span>
+          Generate Full System Report
+        </button>
+      </section>
+      
+      <!-- Key Metrics Grid -->
+      <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+          <div class="flex justify-between items-start mb-4">
+            <span class="p-2 bg-primary-fixed text-primary rounded-lg material-symbols-outlined">person_add</span>
+            <span class="text-secondary text-xs font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">trending_up</span> +12.5%
+            </span>
+          </div>
+          <p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">Total Patients</p>
+          <h3 class="text-3xl font-black text-on-surface">14,282</h3>
+        </div>
+        <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+          <div class="flex justify-between items-start mb-4">
+            <span
+              class="p-2 bg-secondary-container text-on-secondary-container rounded-lg material-symbols-outlined">payments</span>
+            <span class="text-secondary text-xs font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">trending_up</span> +8.2%
+            </span>
+          </div>
+          <p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">Monthly Revenue</p>
+          <h3 class="text-3xl font-black text-on-surface">$248.5k</h3>
+        </div>
+        <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+          <div class="flex justify-between items-start mb-4">
+            <span class="p-2 bg-tertiary-fixed text-tertiary rounded-lg material-symbols-outlined">schedule</span>
+            <span class="text-error text-xs font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">trending_down</span> -2.4%
+            </span>
+          </div>
+          <p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">Avg. Wait Time</p>
+          <h3 class="text-3xl font-black text-on-surface">14.2m</h3>
+        </div>
+        <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+          <div class="flex justify-between items-start mb-4">
+            <span
+              class="p-2 bg-surface-container-high text-on-surface rounded-lg material-symbols-outlined">memory</span>
+            <span class="text-secondary text-xs font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">check_circle</span> 99.9%
+            </span>
+          </div>
+          <p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">System Uptime</p>
+          <h3 class="text-3xl font-black text-on-surface">42d 12h</h3>
+        </div>
+      </section>
+
+      <!-- Charts Bento Grid -->
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Patient Growth & Appointment Trends (Main Chart) -->
+        <div class="lg:col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-sm flex flex-col">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h3 class="text-lg font-bold">Patient vs Appointment Trends</h3>
+              <p class="text-on-surface-variant text-sm">Correlation of clinical demand over the last quarter</p>
+            </div>
+          </div>
+          <!-- Chart Placeholder Visual -->
+          <div
+            class="flex-1 min-h-[300px] flex items-end gap-2 px-4 border-b border-l border-outline-variant/20 relative">
+            <div class="flex-1 flex flex-col justify-end gap-1 group relative">
+              <div class="w-full bg-secondary/20 rounded-t-sm h-[40%]"></div>
+              <div class="w-full bg-primary rounded-t-sm h-[65%]"></div>
+              <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-outline uppercase font-bold">Jul</span>
+            </div>
+            <div class="flex-1 flex flex-col justify-end gap-1 group relative">
+              <div class="w-full bg-secondary/20 rounded-t-sm h-[55%]"></div>
+              <div class="w-full bg-primary rounded-t-sm h-[75%]"></div>
+              <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-outline uppercase font-bold">Aug</span>
+            </div>
+            <div class="flex-1 flex flex-col justify-end gap-1 group relative">
+              <div class="w-full bg-secondary/20 rounded-t-sm h-[45%]"></div>
+              <div class="w-full bg-primary rounded-t-sm h-[85%]"></div>
+              <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-outline uppercase font-bold">Sep</span>
+            </div>
+            <div class="flex-1 flex flex-col justify-end gap-1 group relative">
+              <div class="w-full bg-secondary/20 rounded-t-sm h-[60%]"></div>
+              <div class="w-full bg-primary rounded-t-sm h-[80%]"></div>
+              <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-outline uppercase font-bold">Oct</span>
+            </div>
+            <div class="flex-1 flex flex-col justify-end gap-1 group relative">
+              <div class="w-full bg-secondary/20 rounded-t-sm h-[70%]"></div>
+              <div class="w-full bg-primary rounded-t-sm h-[95%]"></div>
+              <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-outline uppercase font-bold">Nov</span>
+            </div>
+          </div>
+        </div>
+        <!-- Doctor Workload Heatmap -->
+        <div class="lg:col-span-4 bg-surface-container-lowest p-8 rounded-xl shadow-sm">
+          <h3 class="text-lg font-bold mb-2">Doctor Workload</h3>
+          <p class="text-on-surface-variant text-sm mb-6">Peak appointment density by hour</p>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="text-[10px] w-8 text-outline font-bold">08:00</span>
+              <div class="flex-1 grid grid-cols-5 gap-1">
+                <div class="h-6 rounded bg-secondary-fixed/30"></div>
+                <div class="h-6 rounded bg-secondary-fixed"></div>
+                <div class="h-6 rounded bg-secondary-fixed/10"></div>
+                <div class="h-6 rounded bg-secondary-fixed/60"></div>
+                <div class="h-6 rounded bg-secondary-fixed/40"></div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-[10px] w-8 text-outline font-bold">11:00</span>
+              <div class="flex-1 grid grid-cols-5 gap-1">
+                <div class="h-6 rounded bg-secondary-fixed"></div>
+                <div class="h-6 rounded bg-secondary"></div>
+                <div class="h-6 rounded bg-secondary-fixed"></div>
+                <div class="h-6 rounded bg-secondary"></div>
+                <div class="h-6 rounded bg-secondary"></div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 flex items-center justify-between text-[10px] text-outline font-bold px-11">
+            <span>MON</span>
+            <span>TUE</span>
+            <span>WED</span>
+            <span>THU</span>
+            <span>FRI</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <!-- Floating Action Feedback (Global) -->
+  <div class="fixed bottom-8 right-8 z-50">
+    <div class="flex items-center gap-3 glass-panel px-4 py-2 rounded-full border border-outline-variant/20 shadow-xl">
+      <span class="relative flex h-3 w-3">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
+      </span>
+      <span class="text-xs font-bold text-on-surface">Cloud Core v2.4 Operational</span>
+    </div>
+  </div>
+</body>
+</html>

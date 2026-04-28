@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Medical Records | MedCloud Clinical</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/tailwind-config.js"></script>
+  <script src="js/app.js"></script>
+</head>
+<body class="bg-surface text-on-surface font-body">
+  <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none flex justify-between items-center h-16 px-6 w-full">
+    <div class="flex items-center gap-8">
+      <a href="index.html"
+        class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50 font-headline">Clinical Atelier</a>
+      <div class="hidden md:flex gap-6 items-center">
+        <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors font-manrope antialiased"
+          href="admin-dashboard.html">Dashboard</a>
+        <a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 dark:border-blue-400 pb-1 font-manrope antialiased"
+          href="patient-dashboard.html">Patients</a>
+        <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors font-manrope antialiased"
+          href="appointment-booking.html">Schedules</a>
+        <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors font-manrope antialiased"
+          href="analytics.html">Analytics</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="bg-slate-100/50 dark:bg-slate-800/50 rounded-lg p-1 px-3 flex items-center gap-2">
+        <span class="material-symbols-outlined text-slate-400 text-sm">search</span>
+        <input class="bg-transparent border-none text-sm focus:ring-0 w-48 placeholder-slate-400"
+          placeholder="Quick search..." type="text" />
+      </div>
+      <button
+        class="material-symbols-outlined text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg p-2 transition-all">notifications</button>
+      <button
+        class="material-symbols-outlined text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg p-2 transition-all">cloud_done</button>
+      <div class="w-8 h-8 rounded-full overflow-hidden border border-slate-200">
+        <img class="w-full h-full object-cover"
+          data-alt="professional male doctor in white coat with stethoscope around neck smiling confidently"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0GP71KboZ1C7m6iRJFW7sOJCxzuFEqhCpXDcBbeQosL9ITFvnjaheoC_YM0shjiLvBwIWn7VKnesH8PY96P_V2GQXV7QGYJewmrYse7ow1fFV96amgUfWIFyKXztbmSTua-Vr5KJfV80vcGtN9t8swhNc-aC07EoC-AUCS9BzGzkmGOz2_g-30phaiT-ojjB5oYP-qRMVKLTN0JlRLdzPGPF-NQwa5T_G1FUGFFRXuOlqc5rFo2V6VybXZeZWbNh-HyuhOmuTzeya" />
+      </div>
+    </div>
+  </nav>
+  <aside
+    class="h-screen w-64 fixed left-0 top-0 z-40 bg-slate-50 dark:bg-slate-950 flex flex-col py-6 space-y-1 hidden lg:flex pt-20">
+    <div class="px-6 mb-8">
+      <a href="index.html" class="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white">
+          <span class="material-symbols-outlined" data-weight="fill">medical_services</span>
+        </div>
+        <div>
+          <h2 class="text-lg font-black tracking-tighter text-blue-700 dark:text-blue-500 leading-none">Atelier Health
+          </h2>
+          <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Cloud Core v2.4</span>
+        </div>
+      </a>
+    </div>
+    <div class="flex-1 px-2 space-y-1">
+      <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-in-out font-manrope text-sm font-medium"
+        href="admin-dashboard.html">
+        <span class="material-symbols-outlined">dashboard</span> Overview
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-in-out font-manrope text-sm font-medium"
+        href="appointment-booking.html">
+        <span class="material-symbols-outlined">event</span> Appointments
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-xl transition-all duration-200 ease-in-out font-manrope text-sm font-medium"
+        href="medical-records.html">
+        <span class="material-symbols-outlined">folder_shared</span> Patient Records
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-in-out font-manrope text-sm font-medium"
+        href="medical-records.html">
+        <span class="material-symbols-outlined">medication</span> Prescriptions
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-in-out font-manrope text-sm font-medium"
+        href="doctor-dashboard.html">
+        <span class="material-symbols-outlined">group</span> Staff Management
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-in-out font-manrope text-sm font-medium"
+        href="edit-profile.html">
+        <span class="material-symbols-outlined">settings</span> Settings
+      </a>
+    </div>
+    <div class="px-4 mt-auto">
+      <button onclick="window.location.href='appointment-booking.html'" type="button"
+        class="w-full bg-primary text-on-primary py-3 rounded-xl font-bold text-sm shadow-sm hover:opacity-90 transition-all active:scale-95">
+        New Appointment
+      </button>
+      <div class="mt-4 pt-4 border-t border-slate-200/50">
+        <a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-900 transition-colors text-sm font-medium"
+          href="mailto:support@medcloudclinic.com?subject=Medical%20records%20support">
+          <span class="material-symbols-outlined">help_outline</span> Support
+        </a>
+        <div class="flex items-center gap-3 px-4 py-2 text-slate-500 text-sm font-medium">
+          <span class="material-symbols-outlined text-secondary">cloud_queue</span> System Status
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="lg:ml-64 pt-24 px-6 pb-12 min-h-screen">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <div class="flex items-center gap-2 text-primary font-bold text-xs tracking-widest uppercase mb-1">
+            <span class="material-symbols-outlined text-sm">verified_user</span> Patient Dossier
+          </div>
+          <h1 class="text-3xl font-extrabold tracking-tight text-on-surface">Eleanor J. Sterling</h1>
+          <p class="text-on-surface-variant text-sm mt-1 flex items-center gap-2">
+            ID: #MED-882-990 • DOB: June 12, 1988 (35y) •
+            <span
+              class="glass-indicator px-2 py-0.5 rounded-full text-secondary font-semibold text-[10px] flex items-center gap-1 border border-secondary-container">
+              <span class="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span>
+              Securely Stored in Cloud
+            </span>
+          </p>
+        </div>
+        <div class="flex gap-3">
+          <button
+            class="flex items-center gap-2 px-4 py-2 text-sm font-bold text-primary hover:bg-primary-fixed transition-colors rounded-xl">
+            <span class="material-symbols-outlined text-lg">share</span> Share with Doctor
+          </button>
+          <button
+            class="flex items-center gap-2 px-5 py-2 text-sm font-bold bg-primary text-on-primary rounded-xl shadow-sm hover:opacity-90 active:scale-95 transition-all">
+            <span class="material-symbols-outlined text-lg">download</span> Export PDF
+          </button>
+        </div>
+      </div>
+      <div class="grid grid-cols-12 gap-6">
+        <div class="col-span-12 lg:col-span-4 space-y-6">
+          <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+            <div class="flex items-center justify-between mb-6">
+              <h3 class="text-lg font-bold">Medical History</h3>
+              <div class="flex gap-2">
+                <button
+                  class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-1.5 rounded-lg transition-all">filter_list</button>
+                <button
+                  class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-1.5 rounded-lg transition-all">search</button>
+              </div>
+            </div>
+            <div class="relative pl-6 border-l-2 border-surface-container-high space-y-8">
+              <div class="relative">
+                <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-secondary border-4 border-white"></div>
+                <div>
+                  <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Oct 14,
+                    2023</span>
+                  <h4 class="font-bold text-sm text-on-surface">Annual Wellness Visit</h4>
+                  <p class="text-xs text-on-surface-variant mt-1">Dr. Michael Chen • Preventive Care</p>
+                  <div class="mt-2 flex gap-2">
+                    <span
+                      class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] rounded-full font-bold">Complete</span>
+                  </div>
+                </div>
+              </div>
+              <div class="relative">
+                <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-white"></div>
+                <div class="bg-primary-fixed/30 p-3 rounded-xl">
+                  <span class="text-[10px] font-bold text-primary uppercase tracking-wider">Aug 22, 2023</span>
+                  <h4 class="font-bold text-sm text-on-surface">Respiratory Analysis</h4>
+                  <p class="text-xs text-on-surface-variant mt-1">St. Jude Lab Services</p>
+                  <div class="mt-2 flex gap-2">
+                    <span class="px-2 py-0.5 bg-primary text-white text-[10px] rounded-full font-bold">Lab
+                      Results</span>
+                  </div>
+                </div>
+              </div>
+              <div class="relative">
+                <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-tertiary border-4 border-white"></div>
+                <div>
+                  <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">May 05,
+                    2023</span>
+                  <h4 class="font-bold text-sm text-on-surface">Allergy Consultation</h4>
+                  <p class="text-xs text-on-surface-variant mt-1">Dr. Sarah Vance • Immunology</p>
+                </div>
+              </div>
+              <div class="relative">
+                <div
+                  class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-surface-container-high border-4 border-white">
+                </div>
+                <div>
+                  <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Feb 12,
+                    2023</span>
+                  <h4 class="font-bold text-sm text-on-surface">Initial Diagnosis</h4>
+                  <p class="text-xs text-on-surface-variant mt-1">Dr. Robert Fox • General Practice</p>
+                </div>
+              </div>
+            </div>
+            <button
+              class="w-full mt-8 py-3 text-sm font-bold text-on-surface-variant hover:text-primary transition-colors border-t border-surface-container-high flex items-center justify-center gap-2">
+              View Full Archive <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+          <div class="bg-gradient-to-br from-primary to-tertiary rounded-xl p-6 text-white overflow-hidden relative">
+            <div class="relative z-10">
+              <span class="material-symbols-outlined opacity-50 mb-4 text-3xl">policy</span>
+              <h3 class="font-bold text-lg leading-tight mb-2">Privacy &amp; Compliance</h3>
+              <p class="text-white/80 text-xs mb-6">Your data is encrypted using AES-256 and compliant with HIPAA and
+                GDPR standards.</p>
+              <button
+                class="bg-white/20 hover:bg-white/30 backdrop-blur-md px-4 py-2 rounded-lg text-xs font-bold transition-all">Security
+                Audit Log</button>
+            </div>
+            <span class="material-symbols-outlined absolute -bottom-8 -right-8 text-white/10 text-9xl">lock</span>
+          </div>
+        </div>
+        <div class="col-span-12 lg:col-span-8 space-y-6">
+          <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+            <div
+              class="bg-surface-container-low px-8 py-6 border-b border-surface-container-high flex justify-between items-center">
+              <div class="flex items-center gap-4">
+                <div class="p-2 bg-white rounded-xl shadow-sm">
+                  <span class="material-symbols-outlined text-primary text-3xl" data-weight="fill">description</span>
+                </div>
+                <div>
+                  <h2 class="text-xl font-bold text-on-surface">Record Detail: Lab Result #LR-9902</h2>
+                  <p class="text-on-surface-variant text-sm">Uploaded on August 24, 2023 • 14:32 PM</p>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <button
+                  class="material-symbols-outlined text-on-surface-variant hover:bg-surface-variant p-2 rounded-full transition-all"
+                  title="Print">print</button>
+                <button
+                  class="material-symbols-outlined text-on-surface-variant hover:bg-surface-variant p-2 rounded-full transition-all"
+                  title="More Actions">more_vert</button>
+              </div>
+            </div>
+            <div class="p-8 space-y-10">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                  <div>
+                    <span
+                      class="text-[10px] font-black text-on-surface-variant uppercase tracking-widest block mb-1">Attending
+                      Clinician</span>
+                    <div class="flex items-center gap-3">
+                      <img class="w-10 h-10 rounded-full object-cover"
+                        data-alt="professional female doctor with dark hair tied back looking into the camera wearing stethoscope"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQQPToWmVTqeT53n7gV1V7GZOMTEitbIeLjc95xkKnzJgfwX0Wm8t9hsadX2yccWOVrHyHfzBcMs2aZcMh__o6Bu0t-MUfPe5YzT31xensHZEXelis3ltfengmyfmbbCyHGiqgpc2pd3UjPRlO8ov7b_7WCITGhrxPFeJblNTbcYz3_Wf2ivZGmNfY9IgGFzIqSoLg0n9QnarqszAeBjRaGJCrrgorXWyMzp7tOHZew7FU9efHhwq_Z1b2XwoTnwwwHr2Cv5y_pA3E" />
+                      <div>
+                        <p class="font-bold text-sm">Dr. Sarah Vance, MD</p>
+                        <p class="text-xs text-on-surface-variant">Chief of Immunology</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <span
+                      class="text-[10px] font-black text-on-surface-variant uppercase tracking-widest block mb-1">Visit
+                      Date &amp; Facility</span>
+                    <p class="font-bold text-sm">August 22, 2023</p>
+                    <p class="text-xs text-on-surface-variant">St. Jude Metropolitan Medical Center</p>
+                  </div>
+                </div>
+                <div class="bg-surface-container-low rounded-2xl p-6 border border-surface-container-high/50">
+                  <div class="flex items-center justify-between mb-4">
+                    <span class="text-[10px] font-black text-on-surface-variant uppercase tracking-widest">Active
+                      Status</span>
+                    <span
+                      class="px-3 py-1 bg-secondary/10 text-secondary text-[10px] font-black rounded-full border border-secondary/20">VERIFIED</span>
+                  </div>
+                  <p class="text-xs text-on-surface-variant mb-1">Diagnosis Code</p>
+                  <p class="text-lg font-black text-primary">J45.909</p>
+                  <p class="text-sm font-medium text-on-surface">Unspecified asthma, uncomplicated</p>
+                </div>
+              </div>
+              <div>
+                <h3 class="font-bold text-sm mb-4 flex items-center gap-2">
+                  <span class="w-1 h-4 bg-primary rounded-full"></span> Symptoms &amp; Clinical Presentation
+                </h3>
+                <div class="bg-surface-container-low/30 rounded-xl p-4 text-sm leading-relaxed text-on-surface-variant">
+                  Patient presents with chronic non-productive cough, exacerbated in the evenings. Reports mild chest
+                  tightness and wheezing during moderate physical exertion. Symptoms have persisted for approximately 3
+                  weeks. No fever or chills reported. Peak flow monitoring shows 15% variation.
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="font-bold text-sm mb-4 flex items-center gap-2">
+                    <span class="w-1 h-4 bg-secondary rounded-full"></span> Prescribed Regimen
+                  </h3>
+                  <div class="space-y-3">
+                    <div
+                      class="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm border border-surface-container-high">
+                      <span class="material-symbols-outlined text-secondary">medication</span>
+                      <div>
+                        <p class="font-bold text-sm">Albuterol (ProAir HFA)</p>
+                        <p class="text-xs text-on-surface-variant">90mcg Inhalation Aerosol • 1-2 puffs q4h PRN</p>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm border border-surface-container-high">
+                      <span class="material-symbols-outlined text-secondary">medication</span>
+                      <div>
+                        <p class="font-bold text-sm">Fluticasone (Flovent HFA)</p>
+                        <p class="text-xs text-on-surface-variant">110mcg Inhalation Aerosol • 2 puffs twice daily</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="font-bold text-sm mb-4 flex items-center gap-2">
+                    <span class="w-1 h-4 bg-tertiary rounded-full"></span> Laboratory Analysis
+                  </h3>
+                  <div class="space-y-3">
+                    <div
+                      class="flex items-center justify-between p-3 bg-white rounded-xl shadow-sm border border-surface-container-high">
+                      <span class="text-xs font-medium">IgE, Total</span>
+                      <div class="text-right">
+                        <p class="text-sm font-bold text-error">154 IU/mL</p>
+                        <p class="text-[10px] text-on-surface-variant">High (Normal &lt;100)</p>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center justify-between p-3 bg-white rounded-xl shadow-sm border border-surface-container-high">
+                      <span class="text-xs font-medium">Eosinophil Count</span>
+                      <div class="text-right">
+                        <p class="text-sm font-bold">420 cells/µL</p>
+                        <p class="text-[10px] text-on-surface-variant">Normal Range</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="pt-8 border-t border-surface-container-high flex flex-col md:flex-row gap-4 items-center justify-between">
+                <p class="text-[10px] text-on-surface-variant italic">Electronic Signature: /s/ Sarah Vance, MD -
+                  Timestamp: 2023-08-24 09:12:11 GMT</p>
+                <button
+                  class="flex items-center gap-2 px-4 py-2 text-xs font-bold text-error hover:bg-error-container/20 transition-all rounded-lg">
+                  <span class="material-symbols-outlined text-sm">report</span> Request Correction
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+              <span class="material-symbols-outlined text-primary mb-4">analytics</span>
+              <h4 class="font-bold text-sm mb-1">Health Trend</h4>
+              <p class="text-xs text-on-surface-variant">Lung capacity has improved by 8% since last quarter.</p>
+            </div>
+            <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+              <span class="material-symbols-outlined text-secondary mb-4">vaccines</span>
+              <h4 class="font-bold text-sm mb-1">Next Screening</h4>
+              <p class="text-xs text-on-surface-variant">Scheduled for Nov 22, 2023: Pulmonary Function Test.</p>
+            </div>
+            <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+              <span class="material-symbols-outlined text-tertiary mb-4">folder_special</span>
+              <h4 class="font-bold text-sm mb-1">Shared Access</h4>
+              <p class="text-xs text-on-surface-variant">Records shared with Cardiology Dept. for 30 days.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="fixed bottom-8 right-8 z-50">
+    <button
+      class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-90 transition-all">
+      <span class="material-symbols-outlined text-2xl" data-weight="fill">chat_bubble</span>
+    </button>
+  </div>
+</body>
+</html>

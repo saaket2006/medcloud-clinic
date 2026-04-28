@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Book Appointment | MedCloud Clinical</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/tailwind-config.js"></script>
+  <script src="js/app.js"></script>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none font-manrope antialiased">
+<div class="flex justify-between items-center h-16 px-6 w-full">
+<div class="flex items-center gap-8">
+<a href="index.html" class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50">Clinical Atelier</a>
+<div class="hidden md:flex items-center space-x-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="admin-dashboard.html">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="patient-dashboard.html">Patients</a>
+<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 dark:border-blue-400 pb-1" href="appointment-booking.html">Schedules</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="analytics.html">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined text-on-surface-variant">cloud_done</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-fixed overflow-hidden ring-2 ring-white">
+<img alt="User Profile" data-alt="professional portrait of a healthcare administrator in a bright modern clinical setting, soft lighting, professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI4w9wL-rQczcHNfALzOoB-3WNMc7VQun1UPhCQyKLHcuk6qoce1TZYle9kT3jJeGGlY7jfb6WmRNCxgxRLJVXGDVu7W4diyw62PUf5tvzJP6Ei95D1Rv2v1kF0Ndbk7YlxT-BTilqs-ZAlHG476LQWkdFzcgBR0fOeh9UHE6KyyYtk6H54r3DI9SIkC1dLMz30OfLXM_lEwO_aVn1seOP48Qq1MCAIfcVlk5OMwbo6NBRCzCZMCYumk66zAuJCaZCeyrptPtwtJUQ"/>
+</div>
+</div>
+</div>
+<div class="bg-slate-100/50 dark:bg-slate-800/50 h-[1px] w-full"></div>
+</nav>
+<main class="pt-24 pb-12 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Booking Progress Sidebar -->
+<aside class="lg:col-span-3 space-y-6">
+<div class="bg-surface-container-low rounded-xl p-6 space-y-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<h2 class="font-headline font-bold text-lg">Booking Journey</h2>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4 items-start relative">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div class="w-0.5 h-12 bg-secondary"></div>
+</div>
+<div class="pt-1">
+<p class="text-sm font-semibold text-on-surface">Specialty</p>
+<p class="text-xs text-on-surface-variant">Cardiology</p>
+</div>
+</div>
+<div class="flex gap-4 items-start relative">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center z-10 shadow-lg ring-4 ring-primary-fixed">
+<span class="text-sm font-bold">2</span>
+</div>
+<div class="w-0.5 h-12 bg-outline-variant"></div>
+</div>
+<div class="pt-1">
+<p class="text-sm font-semibold text-primary">Doctor &amp; Time</p>
+<p class="text-xs text-on-surface-variant">Selection in progress...</p>
+</div>
+</div>
+<div class="flex gap-4 items-start relative">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center z-10">
+<span class="text-sm font-bold">3</span>
+</div>
+<div class="w-0.5 h-12 bg-outline-variant"></div>
+</div>
+<div class="pt-1">
+<p class="text-sm font-semibold text-on-surface-variant">Clinical Details</p>
+<p class="text-xs text-on-surface-variant">Pending</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center z-10">
+<span class="text-sm font-bold">4</span>
+</div>
+</div>
+<div class="pt-1">
+<p class="text-sm font-semibold text-on-surface-variant">Final Review</p>
+<p class="text-xs text-on-surface-variant">Pending</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Contextual Help -->
+<div class="bg-primary/5 rounded-xl p-6 border-l-4 border-primary">
+<p class="text-sm font-semibold text-primary mb-2">Need Assistance?</p>
+<p class="text-xs text-on-surface-variant leading-relaxed">Our clinical coordinators are available for immediate support via secure messaging.</p>
+<button class="mt-4 text-xs font-bold text-primary flex items-center gap-1">
+                    START LIVE CHAT <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="lg:col-span-9 space-y-8">
+<!-- Step Header -->
+<header class="flex flex-col gap-2">
+<span class="text-primary font-bold text-sm tracking-widest uppercase">Step 02 — Configuration</span>
+<h1 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight">Select Provider &amp; Schedule</h1>
+</header>
+<!-- Bento Grid: Doctor & Calendar -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+<!-- Doctor Profile Selection (Left Column) -->
+<div class="md:col-span-2 space-y-4">
+<h3 class="font-label text-xs font-bold text-on-surface-variant tracking-wider uppercase px-2">Available Specialists</h3>
+<!-- Selected Doctor -->
+<div class="bg-surface-container-lowest p-5 rounded-xl ring-2 ring-primary relative group">
+<div class="absolute top-4 right-4 bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9
+                        </div>
+<div class="flex gap-4">
+<div class="w-16 h-16 rounded-xl bg-surface-container overflow-hidden">
+<img alt="Doctor Sarah" data-alt="professional headshot of a female doctor with a stethoscope, bright high-key lighting, medical office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzwxCp6bYRGjalVd8f6PmAzx96JhhGw7h6-edf4X3ZB6s4T4L60sZ8Q81lixJH_6b7jAZrk9hUIHRzAz3Yvko16V_FO3cTg7BKdUbPErgo98BIfwdz9rdx1wT9LKCCE_NUetWQHWYGg0r_xBHpQYjIR7m2FUzLYVRTEdSEv2hbo9eFwmTp5LQHzsOG3353DaFuTegNDqyNMKFniPcXVOORKwWn8OXSOVysuGSpB5aAzeVPqFj694t_JQVhjMBaBMxNRHBLuprReGVS"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Dr. Sarah Jenning</h4>
+<p class="text-xs text-on-surface-variant mb-2">Senior Cardiologist</p>
+<div class="flex gap-2">
+<span class="text-[10px] bg-surface-container-low px-2 py-1 rounded font-medium">12y Exp</span>
+<span class="text-[10px] bg-surface-container-low px-2 py-1 rounded font-medium">PHD Oxford</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Alternate Doctor -->
+<div class="bg-white/40 hover:bg-white p-5 rounded-xl transition-all cursor-pointer group">
+<div class="flex gap-4">
+<div class="w-16 h-16 rounded-xl bg-surface-container overflow-hidden opacity-80 group-hover:opacity-100 transition-opacity">
+<img alt="Doctor James" data-alt="male doctor smiling in a professional clinic environment, clinical attire, warm natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4wWkv0bnYO6h2rigkDZ4SVsRse128PxRHWb5iLOfZAQn3cQCroASpi0yTawZKccsvh0QNS0Ez10vw611w-AdjxnJPegmUJ1mpXIEV9sbOnvUXKy6E6jxwUoi4xR8xurivHmrwG7UOPJDmEsPDzjecjmAuXlcBwpw50xNq7LshpvDkJ0SibLbKts_PmaSmMb8bKPpeVHnVrT9o3iy5L424hC_MrIYVqbCmGia2YgawIH3pHZH3Oru9eXPV0OEPGOq-oepRIF1Tlq5z"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface-variant group-hover:text-on-surface">Dr. James Wilson</h4>
+<p class="text-xs text-on-surface-variant">Interventional Cardiology</p>
+<div class="mt-2 flex items-center gap-1 text-[10px] text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">star</span> 4.7 (120 reviews)
+                                </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Calendar & Time Slots (Right Column) -->
+<div class="md:col-span-3 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold">November 2024</h3>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-surface-container rounded-lg"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-2 hover:bg-surface-container rounded-lg"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<!-- Mini Calendar View -->
+<div class="grid grid-cols-7 gap-2 text-center mb-8">
+<div class="text-[10px] font-bold text-on-surface-variant">S</div>
+<div class="text-[10px] font-bold text-on-surface-variant">M</div>
+<div class="text-[10px] font-bold text-on-surface-variant">T</div>
+<div class="text-[10px] font-bold text-on-surface-variant">W</div>
+<div class="text-[10px] font-bold text-on-surface-variant">T</div>
+<div class="text-[10px] font-bold text-on-surface-variant">F</div>
+<div class="text-[10px] font-bold text-on-surface-variant">S</div>
+<!-- Placeholder dates -->
+<div class="p-2 text-xs text-outline-variant">28</div>
+<div class="p-2 text-xs text-outline-variant">29</div>
+<div class="p-2 text-xs text-outline-variant">30</div>
+<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">1</button>
+<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">2</button>
+<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">3</button>
+<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">4</button>
+<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">5</button>
+<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">6</button>
+<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">7</button>
+<button class="p-2 text-xs font-bold bg-primary text-on-primary rounded-xl ring-2 ring-primary-fixed">8</button>
+<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">9</button>
+<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">10</button>
+<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">11</button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<p class="text-sm font-bold">Select Time Slot</p>
+<p class="text-xs text-secondary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span> 4 slots left
+                                </p>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<button class="py-3 px-4 rounded-xl border border-outline-variant hover:border-primary hover:text-primary transition-all text-sm font-medium">09:00 AM</button>
+<button class="py-3 px-4 rounded-xl bg-primary-fixed text-primary border-2 border-primary font-bold text-sm">10:30 AM</button>
+<button class="py-3 px-4 rounded-xl border border-outline-variant hover:border-primary hover:text-primary transition-all text-sm font-medium">11:15 AM</button>
+<button class="py-3 px-4 rounded-xl border border-outline-variant bg-surface-container-low text-outline cursor-not-allowed text-sm font-medium line-through">01:30 PM</button>
+<button class="py-3 px-4 rounded-xl border border-outline-variant hover:border-primary hover:text-primary transition-all text-sm font-medium">03:00 PM</button>
+<button class="py-3 px-4 rounded-xl border border-outline-variant hover:border-primary hover:text-primary transition-all text-sm font-medium">04:45 PM</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Additional Details Section -->
+<div class="bg-surface-container-low rounded-2xl p-8 space-y-6">
+<h3 class="font-headline font-bold text-xl">Clinical Intake Information</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Reason for Visit</label>
+<textarea class="w-full bg-surface-container-lowest border-none rounded-xl p-4 text-sm focus:ring-2 focus:ring-primary h-32 resize-none" placeholder="Describe your symptoms or the reason for your consultation..."></textarea>
+</div>
+<div class="space-y-4">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Document Upload (Optional)</label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center bg-white/50 hover:bg-white hover:border-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-primary mb-2">upload_file</span>
+<p class="text-sm font-bold text-on-surface">Drop medical history here</p>
+<p class="text-[10px] text-on-surface-variant mt-1">PDF, JPG or PNG (max. 10MB)</p>
+</div>
+<div class="flex items-center gap-3 bg-secondary-container/20 p-3 rounded-lg">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+<p class="text-[10px] text-on-secondary-container">Your data is encrypted with HIPAA-compliant protocols.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Bar -->
+<div class="flex justify-between items-center pt-4 border-t border-surface-container-highest">
+<button class="flex items-center gap-2 text-on-surface-variant font-bold text-sm hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">west</span> Back
+                </button>
+<div class="flex gap-4">
+<button class="px-8 py-4 rounded-xl font-bold text-primary hover:bg-primary-fixed transition-colors">Save Draft</button>
+<button class="px-10 py-4 bg-primary text-on-primary rounded-xl font-bold shadow-lg shadow-primary/20 hover:shadow-xl transition-all active:scale-95">Continue to Review</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Success Modal Overlay (Hidden by default, shown for conceptual design) -->
+<div class="fixed inset-0 z-[60] bg-on-background/40 backdrop-blur-sm flex items-center justify-center p-6 hidden">
+<div class="bg-surface rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl">
+<div class="h-2 bg-secondary w-full"></div>
+<div class="p-10 text-center flex flex-col items-center">
+<div class="w-20 h-20 rounded-full bg-secondary-container text-secondary flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h2 class="font-headline text-3xl font-extrabold mb-2">Booking Confirmed!</h2>
+<p class="text-on-surface-variant text-sm mb-8">Your appointment with Dr. Sarah Jenning is secured for November 8th, 2024.</p>
+<div class="w-full bg-surface-container-low rounded-2xl p-6 text-left space-y-4 mb-8">
+<div class="flex justify-between border-b border-outline-variant/20 pb-2">
+<span class="text-xs text-on-surface-variant">Reference ID</span>
+<span class="text-xs font-bold text-primary">#MCA-882910</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/20 pb-2">
+<span class="text-xs text-on-surface-variant">Consultation Type</span>
+<span class="text-xs font-bold">In-Person Screening</span>
+</div>
+<div class="flex justify-between">
+<span class="text-xs text-on-surface-variant">Total Duration</span>
+<span class="text-xs font-bold">45 Minutes</span>
+</div>
+</div>
+<div class="flex flex-col w-full gap-3">
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">event</span> Add to Calendar
+                    </button>
+<button class="w-full py-4 text-on-surface-variant font-bold hover:bg-surface-container rounded-xl transition-colors">
+                        View Appointment Dashboard
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

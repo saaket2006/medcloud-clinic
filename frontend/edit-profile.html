@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Edit Profile | Clinical Atelier</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/tailwind-config.js"></script>
+  <script src="js/app.js"></script>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+  <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none font-manrope antialiased">
+    <div class="flex justify-between items-center h-16 px-6 w-full">
+      <div class="flex items-center gap-8">
+        <a href="index.html" class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50">Clinical
+          Atelier</a>
+        <div class="hidden md:flex gap-6">
+          <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+            href="admin-dashboard.html">Dashboard</a>
+          <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+            href="patient-dashboard.html">Patients</a>
+          <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+            href="appointment-booking.html">Schedules</a>
+          <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+            href="analytics.html">Analytics</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <button
+          class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95 duration-200">
+          <span class="material-symbols-outlined text-slate-600">notifications</span>
+        </button>
+        <button
+          class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95 duration-200">
+          <span class="material-symbols-outlined text-slate-600">cloud_done</span>
+        </button>
+        <div class="h-8 w-8 rounded-full bg-primary-fixed overflow-hidden ring-2 ring-surface">
+          <img alt="User Profile with Role Indicator" class="w-full h-full object-cover"
+            data-alt="professional portrait of a female doctor in medical scrubs with a confident and warm expression in a brightly lit clinic"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJmF4g70Ki6NHCKkrhEinuSQ8bXEMv8JqiCTr1GvnqW65m9_e1-bE56MXUuqEo1nUPPojuFXmF0E9LwLfNQAQ9Ji1IUfEOZdL0dvLI-FpbeKgMgxQlFWI2S8mCVA7FyvtjI-ai2a6iVjqlLRqW0POddHPoGhuIyJ8yqUHNuLtV2-a_rLizorHLRX3vAaj2CSXqoMQc4vA4uMTNMrQeX6ZOBAcQpuyzxV9cvaY7B51PO4Ukhyh2BHfCUnle2I15HhSmpr6up5mFddfs" />
+        </div>
+      </div>
+    </div>
+    <div class="bg-slate-100/50 dark:bg-slate-800/50 h-[1px] w-full"></div>
+  </nav>
+  <!-- SideNavBar Shell -->
+  <aside
+    class="h-screen w-64 fixed left-0 top-0 z-40 bg-slate-50 dark:bg-slate-950 flex flex-col py-6 space-y-1 font-manrope text-sm font-medium">
+    <a href="index.html" class="px-6 mb-8 mt-16 block cursor-pointer hover:opacity-80 transition-opacity">
+      <div class="text-lg font-black tracking-tighter text-blue-700 dark:text-blue-500">Atelier Health</div>
+      <div class="text-xs text-on-surface-variant font-normal">Cloud Core v2.4</div>
+    </a>
+    <nav class="flex-1 px-2 space-y-1">
+      <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-in-out"
+        href="admin-dashboard.html">
+        <span class="material-symbols-outlined">dashboard</span> Overview
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-in-out"
+        href="appointment-booking.html">
+        <span class="material-symbols-outlined">event</span> Appointments
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-in-out"
+        href="medical-records.html">
+        <span class="material-symbols-outlined">folder_shared</span> Patient Records
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-in-out"
+        href="medical-records.html">
+        <span class="material-symbols-outlined">medication</span> Prescriptions
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-in-out"
+        href="doctor-dashboard.html">
+        <span class="material-symbols-outlined">group</span> Staff Management
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-xl transition-all duration-200 ease-in-out"
+        href="edit-profile.html">
+        <span class="material-symbols-outlined">settings</span> Settings
+      </a>
+    </nav>
+    <div class="px-4 mb-4">
+      <button onclick="window.location.href='appointment-booking.html'" type="button"
+        class="w-full bg-primary text-on-primary py-2.5 rounded-xl font-semibold active:scale-95 transition-transform flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+        <span class="material-symbols-outlined text-lg">add</span> New Appointment
+      </button>
+    </div>
+    <div class="px-2 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+      <a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 rounded-xl transition-all"
+        href="mailto:support@medcloudclinic.com?subject=Settings%20support">
+        <span class="material-symbols-outlined">help_outline</span> Support
+      </a>
+      <a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 rounded-xl transition-all"
+        href="mailto:support@medcloudclinic.com?subject=System%20status%20question">
+        <span class="material-symbols-outlined">cloud_queue</span> System Status
+      </a>
+    </div>
+  </aside>
+  <!-- Main Content Canvas -->
+  <main class="ml-64 pt-24 px-8 pb-12 min-h-screen">
+    <header class="mb-10 flex justify-between items-end">
+      <div>
+        <h1 class="text-4xl font-headline font-extrabold tracking-tight text-on-surface">Edit Profile</h1>
+        <p class="text-on-surface-variant mt-2 font-body">Manage your administrative identity and security preferences.
+        </p>
+      </div>
+      <div class="flex gap-3">
+        <button
+          class="px-6 py-2.5 rounded-xl text-on-surface-variant font-medium hover:bg-surface-container transition-colors">Discard
+          Changes</button>
+        <button
+          class="px-8 py-2.5 rounded-xl bg-primary text-on-primary font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all">Save
+          Changes</button>
+      </div>
+    </header>
+    <div class="grid grid-cols-12 gap-8">
+      <!-- Left Column: Personal Info & Avatar -->
+      <div class="col-span-12 lg:col-span-8 space-y-8">
+        <!-- Profile Identity Card -->
+        <section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+          <div class="flex items-start gap-8 mb-10">
+            <div class="relative group">
+              <div class="h-32 w-32 rounded-3xl overflow-hidden ring-4 ring-primary/10">
+                <img alt="Dr. Sarah Mitchell" class="w-full h-full object-cover"
+                  data-alt="close-up professional medical portrait of a surgeon with a calm and confident demeanor in soft studio lighting"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrA1twh9WaIPDXz5if4fvtNZZ1WM3mS-UJFxcmSrd_t33V-l46nSkajC-HzvqQyPyQ6OBwIByKQ8J42_Cam-vdf3p_kiiUUgTc5d2OqNcqsMxwkd4l4k7FVZNejCOxrZhYRciVOt1T8tv8ddVQGLH7Vsbbu4DYHBKkKeDn5U4ibsr7X-MVwt6SYYXFQ4UfS-XSaHWmg3MALBIYRv6ED1CiMvRV40-pBErfCL0to8muoHNaldYZ4iOH5nm2eIcRhSRCToySU9I0_FO5" />
+              </div>
+              <button
+                class="absolute -bottom-2 -right-2 bg-primary text-on-primary p-2 rounded-xl shadow-xl hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-lg">photo_camera</span>
+              </button>
+            </div>
+            <div class="flex-1">
+              <div class="grid grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Full Name</label>
+                  <input
+                    class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary transition-all"
+                    type="text" value="Dr. Sarah Mitchell" />
+                </div>
+                <div class="space-y-2">
+                  <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Medical ID</label>
+                  <input
+                    class="w-full bg-surface-container-highest/50 border-0 rounded-xl px-4 py-3 text-on-surface-variant cursor-not-allowed"
+                    readonly="" type="text" value="MD-992-04" />
+                </div>
+                <div class="space-y-2">
+                  <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Email
+                    Address</label>
+                  <input
+                    class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary transition-all"
+                    type="email" value="s.mitchell@atelierhealth.com" />
+                </div>
+                <div class="space-y-2">
+                  <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Phone
+                    Number</label>
+                  <input
+                    class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary transition-all"
+                    type="tel" value="+1 (555) 012-3456" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Professional Bio</label>
+            <textarea
+              class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary transition-all resize-none"
+              rows="4">Board-certified Senior Clinician with over 12 years of experience in internal medicine. Specialized in personalized patient care and clinical data analysis at Atelier Health.</textarea>
+          </div>
+        </section>
+        <!-- Account Security Section -->
+        <section class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+          <div class="px-8 py-6 bg-surface-container-low/50 flex items-center justify-between">
+            <div>
+              <h3 class="font-headline font-bold text-lg">Account Security</h3>
+              <p class="text-sm text-on-surface-variant">Keep your clinical access points protected.</p>
+            </div>
+            <span
+              class="px-3 py-1 bg-secondary-container text-on-secondary-container text-xs font-bold rounded-full flex items-center gap-1">
+              <span class="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span>
+              SECURE
+            </span>
+          </div>
+          <div class="p-8 space-y-8">
+            <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+              <div class="flex items-center gap-4">
+                <div class="p-3 bg-white rounded-xl shadow-sm text-primary">
+                  <span class="material-symbols-outlined">lock_open</span>
+                </div>
+                <div>
+                  <div class="font-bold">Password</div>
+                  <div class="text-xs text-on-surface-variant">Last changed 4 months ago</div>
+                </div>
+              </div>
+              <button class="text-primary font-bold text-sm hover:underline">Update Password</button>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+              <div class="flex items-center gap-4">
+                <div class="p-3 bg-white rounded-xl shadow-sm text-tertiary">
+                  <span class="material-symbols-outlined">security</span>
+                </div>
+                <div>
+                  <div class="font-bold">Two-Factor Authentication</div>
+                  <div class="text-xs text-on-surface-variant">Enhanced security via mobile device</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-secondary">ENABLED</span>
+                <button class="w-12 h-6 bg-secondary rounded-full relative transition-colors">
+                  <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- Right Column: Sidebar Options -->
+      <div class="col-span-12 lg:col-span-4 space-y-8">
+        <!-- Notification Preferences Bento -->
+        <section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+          <h3 class="font-headline font-bold text-lg mb-6">Notification Channels</h3>
+          <div class="space-y-6">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-on-surface-variant">mail</span>
+                <span class="font-medium">Patient Updates</span>
+              </div>
+              <input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-outline-variant"
+                type="checkbox" />
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-on-surface-variant">schedule</span>
+                <span class="font-medium">Shift Reminders</span>
+              </div>
+              <input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-outline-variant"
+                type="checkbox" />
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-on-surface-variant">analytics</span>
+                <span class="font-medium">System Reports</span>
+              </div>
+              <input class="w-5 h-5 rounded text-primary focus:ring-primary border-outline-variant" type="checkbox" />
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-on-surface-variant">chat_bubble</span>
+                <span class="font-medium">Direct Messages</span>
+              </div>
+              <input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary border-outline-variant"
+                type="checkbox" />
+            </div>
+          </div>
+        </section>
+        <!-- Status Cloud Glass Card -->
+        <div class="glass-panel p-6 rounded-3xl relative overflow-hidden ring-1 ring-white/20 shadow-ambient">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+          <div class="relative flex flex-col gap-4">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-secondary/10 flex items-center justify-center">
+                <span class="material-symbols-outlined text-secondary"
+                  style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+              </div>
+              <div>
+                <div class="text-sm font-bold">Cloud Sync Active</div>
+                <div class="text-[10px] text-on-surface-variant tracking-wider uppercase">Last synced 2m ago</div>
+              </div>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Your profile changes will be immediately visible
+              across all hospital terminal instances and mobile apps.</p>
+            <div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+              <div class="h-full w-2/3 bg-secondary rounded-full"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Delete Account Warning -->
+        <div class="p-6 rounded-xl bg-error-container/20 border border-error/10">
+          <h4 class="text-error font-bold mb-2 flex items-center gap-2">
+            <span class="material-symbols-outlined text-lg">warning</span>
+            Danger Zone
+          </h4>
+          <p class="text-xs text-on-error-container/70 mb-4">Requesting account deactivation requires institutional
+            administrative approval.</p>
+          <button
+            class="text-xs font-bold text-error hover:bg-error/5 px-3 py-1 rounded transition-colors uppercase tracking-tight">Request
+            Account Deletion</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- FAB Suppression: No FAB on Settings/Profile screens as per mandate -->
+</body>
+</html>

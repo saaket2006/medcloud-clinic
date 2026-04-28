@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>MedCloud Clinic | Cloud-Native Hospital Management</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/tailwind-config.js"></script>
+  <script src="js/app.js"></script>
+</head>
+
+<body class="bg-surface font-body text-on-surface antialiased">
+  <!-- Top Navigation Shell -->
+  <nav
+    class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-sm h-16 px-6 flex justify-between items-center font-headline">
+    <div class="flex items-center gap-8">
+      <a href="index.html" class="text-xl font-bold tracking-tight text-slate-900">MedCloud Clinic</a>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#features" class="hover:text-primary transition-colors">Features</a>
+        <a href="#architecture" class="hover:text-primary transition-colors">Architecture</a>
+        <a href="login.html" class="hover:text-primary transition-colors">Clinical Portal</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <div
+        class="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-surface-container rounded-full text-on-surface-variant text-sm">
+        <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+        <span class="font-medium">System Healthy</span>
+      </div>
+      <button
+        class="material-symbols-outlined text-slate-500 hover:bg-slate-50 p-2 rounded-lg transition-all active:scale-95">notifications</button>
+      <div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
+        <img alt="User Profile"
+          data-alt="professional portrait of a medical director in a clean white environment with soft lighting and clinical aesthetic"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgtB8Cn0HFBh6EFIp8_ABn3W6lr5IS4IesakxR7sfSwAQswZxB9irtSVGM_gXR50Gr9cBGs48qK0A3hucMZatw5JmxHUHt7jF_m_NtTZENcSmdPSiRuRIKqjVCA8b2cWCTwDxI57cwAW_yWy7vb3qKMHczTG_v58iUmV8Aa-FdnlccVOacsgg13lCzTDIu7JD2guuKqRXgOCUS3GBDgS0ixsaqE-WDgDNkZF2kXdd6U_TkkIWxemye6lT3rImzOebB7lJvHkbZ_FP1" />
+      </div>
+    </div>
+  </nav>
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="relative min-h-[870px] flex items-center px-6 lg:px-24 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px]">
+        </div>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-12 items-center relative z-10 w-full max-w-7xl mx-auto">
+        <div>
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-bold tracking-widest uppercase mb-6">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Next-Gen Infrastructure
+          </div>
+          <h1 class="font-headline text-5xl lg:text-7xl font-extrabold text-on-background leading-[1.1] mb-6">
+            Cloud-Enabled <br />
+            <span class="text-primary">Hospital Management</span>
+          </h1>
+          <p class="text-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">
+            MedCloud Clinical leverages a bespoke, high-performance architecture to deliver medical precision at scale.
+            Engineered for reliability, designed for clinicians.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <button onclick="window.location.href='login.html'"
+              class="bg-primary text-on-primary px-8 py-4 rounded-xl font-semibold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">Get
+              Started</button>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="bg-surface-container-lowest p-4 rounded-[2rem] tonal-stacking border border-outline-variant/10">
+            <img alt="Medical Dashboard" class="rounded-[1.5rem] w-full object-cover aspect-[4/3]"
+              data-alt="sleek modern medical dashboard displayed on a high-resolution screen showing health analytics and patient data with a clean blue and white interface"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoGYm-vLtdApsaSBw18BFMztIfzENZtt5v-N8RXMYDTLmXfPrzJp3DA_xUFe6-k9WbE7vTEgQ7UZMq3LYC3exf1s8BJExml5l47oe5XDypUj0NH8kbEoSw-MMYv2wmZ2SuxWtEFuuw-NVlOGCmeTj5neuDogi7wmlbtKbqe6k4sVh14pmR7GVSl2XjWVT8CW31Tl8zP8UG-eLBh7Q_WyE6fdq4qzgadCusldU3WBGJNZlMEzIqsQB-qYWpBi3HsJf-tUR1CLR0pg7H" />
+          </div>
+          <div
+            class="absolute -bottom-6 -left-6 glass-effect p-6 rounded-2xl tonal-stacking border border-white/40 max-w-[240px]">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="material-symbols-outlined text-secondary"
+                style="font-variation-settings: 'FILL' 1;">bolt</span>
+              <span class="font-headline font-bold text-lg">99.9% Uptime</span>
+            </div>
+            <p class="text-xs text-on-surface-variant font-medium">Global AWS deployment ensuring zero-latency access to
+              critical data.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- System Architecture Diagram -->
+    <section id="architecture" class="py-24 bg-surface-container-low">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="font-headline text-3xl font-extrabold mb-4">Seamless Architecture Flow</h2>
+          <p class="text-on-surface-variant">Built on a lightweight static frontend and Spring Boot API with automated cloud
+            orchestration.</p>
+        </div>
+        <div
+          class="relative flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 bg-surface-container-lowest p-12 rounded-[2.5rem] border border-outline-variant/10 shadow-sm">
+          <!-- Flow Node 1 -->
+          <div class="flex flex-col items-center text-center z-10 w-32">
+            <div class="w-16 h-16 rounded-2xl bg-primary-fixed flex items-center justify-center mb-4 text-primary">
+              <span class="material-symbols-outlined text-3xl">person</span>
+            </div>
+            <span class="font-headline font-bold text-sm">User</span>
+          </div>
+          <div class="architecture-line hidden md:block"></div>
+          <!-- Flow Node 2 -->
+          <div class="flex flex-col items-center text-center z-10 w-32">
+            <div
+              class="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center mb-4 text-secondary">
+              <span class="material-symbols-outlined text-3xl">laptop_mac</span>
+            </div>
+              <span class="font-headline font-bold text-sm">Static Frontend</span>
+          </div>
+          <div class="architecture-line hidden md:block"></div>
+          <!-- Flow Node 3 -->
+          <div class="flex flex-col items-center text-center z-10 w-32">
+            <div class="w-16 h-16 rounded-2xl bg-tertiary-fixed flex items-center justify-center mb-4 text-tertiary">
+              <span class="material-symbols-outlined text-3xl">terminal</span>
+            </div>
+              <span class="font-headline font-bold text-sm">Spring Boot API</span>
+          </div>
+          <div class="architecture-line hidden md:block"></div>
+          <!-- Flow Node 4 -->
+          <div class="flex flex-col items-center text-center z-10 w-32">
+            <div class="w-16 h-16 rounded-2xl bg-primary-fixed flex items-center justify-center mb-4 text-primary">
+              <span class="material-symbols-outlined text-3xl">database</span>
+            </div>
+              <span class="font-headline font-bold text-sm">H2 / MySQL</span>
+          </div>
+          <div class="architecture-line hidden md:block"></div>
+          <!-- Flow Node 5 -->
+          <div class="flex flex-col items-center text-center z-10 w-32">
+            <div
+              class="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center mb-4 text-secondary">
+              <span class="material-symbols-outlined text-3xl">hub</span>
+            </div>
+            <span class="font-headline font-bold text-sm">CI/CD</span>
+          </div>
+          <div class="architecture-line hidden md:block"></div>
+          <!-- Flow Node 6 -->
+          <div class="flex flex-col items-center text-center z-10 w-32">
+            <div class="w-16 h-16 rounded-2xl bg-on-background text-surface flex items-center justify-center mb-4">
+              <span class="material-symbols-outlined text-3xl">cloud</span>
+            </div>
+            <span class="font-headline font-bold text-sm">AWS Cloud</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Features Bento Grid -->
+    <section id="features" class="py-24 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Feature: Patient -->
+          <div
+            class="md:col-span-2 bg-surface-container-lowest p-10 rounded-[2rem] tonal-stacking flex flex-col justify-between group">
+            <div>
+              <div
+                class="w-14 h-14 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-3xl"
+                  style="font-variation-settings: 'FILL' 1;">patient_list</span>
+              </div>
+              <h3 class="font-headline text-2xl font-bold mb-4">Patient-Centric Portal</h3>
+              <p class="text-on-surface-variant max-w-md">Empower patients with secure access to their clinical history,
+                live appointment booking, and instant prescription downloads.</p>
+            </div>
+            <div class="mt-12 flex -space-x-3 overflow-hidden">
+              <img alt="user" class="inline-block h-10 w-10 rounded-full ring-4 ring-white"
+                data-alt="close-up portrait of a woman in a casual setting with soft natural light"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAogXFBjVYX_Ps6cmSkvULRLE2u6cAk0hCfHK624x-leenc_lH-fST4Zz4_Jc8poAPXL02WNBq9IVdkM24jLmH4bHvnk25uX9QBYLsTvPHJzAJio43pfS4PbwksN9bi7PdKbdWlsgUYP4XIj91EVzh8WZrtji_ciUnEBj9VxRPDkC7MieP_Sq22XbUs8vVb52KTEL-G1j2AR5uLgCGCofAOIaObNxLrwnh7Nh3MxSSn7tTszMvOInZVEu0NwJohVzfL02Wu9VQZ-fU-" />
+              <img alt="user" class="inline-block h-10 w-10 rounded-full ring-4 ring-white"
+                data-alt="headshot of a man with a friendly expression in a brightly lit studio"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrgFaqEBgEn6v5W1xSQlHqxfdFt7RYYEjZN-IHPJo08oDkdMQwxJpF8phqMkfI9_qH0nfJuRABtJhk5i8NYcDdIlPR2AT1fquBfr890G83YDT1yMiI2FFu1nSiiCsp4u3-b5awy8ygem7_KsJBGNAl4JMYu9U9IHxvk_GuSwH-OGiIgs0lqvB5dathXvwXjzFQPh0xBjLZfRTfU128QvgNY6VtI3bdldz3DFAsq3YJIK_K_8ZMySvuocEwMp6T_m2TuA58BFW9ba-C" />
+              <img alt="user" class="inline-block h-10 w-10 rounded-full ring-4 ring-white"
+                data-alt="professional headshot of a woman in a corporate setting with neutral background"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfH8TUQ0y4vq4v4NogxuuJ22wNMMeL2I9N4iTAVcravinM5ET9eq4Mq93bwBoYr6H0dDc775rGynf9klM0IzjRhjlp7ql7Xk63CFm_g9QR4mhdzPxgW_SS-gES-YFZYrVoEijFiD-duGbZknagnjQnOeSYh6wEY12J62ivvO3Jd0yBD_876m_q93v4ptu1JRmeinLoqbaF5qzSlKe7z4NUamFoFzBEKVyEdyCYAECm4Y6ig_nEopzYB7EYwL6WXEPbrxF46KXbBzgP" />
+              <div
+                class="flex items-center justify-center h-10 w-10 rounded-full bg-surface-container text-xs font-bold text-on-surface ring-4 ring-white">
+                +2k</div>
+            </div>
+          </div>
+          <!-- Feature: Doctor -->
+          <div class="bg-primary p-10 rounded-[2rem] text-on-primary flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined text-3xl text-white"
+                  style="font-variation-settings: 'FILL' 1;">stethoscope</span>
+              </div>
+              <h3 class="font-headline text-2xl font-bold mb-4">Clinical Precision</h3>
+              <p class="text-primary-fixed/80">Tailored workflows for doctors including AI-assisted charting and
+                real-time lab integration.</p>
+            </div>
+            <button onclick="window.location.href='login.html'" class="mt-8 text-sm font-bold flex items-center gap-2 group">
+              Explore Clinical Tools <span
+                class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </button>
+          </div>
+          <!-- Feature: Admin -->
+          <div class="bg-surface-container p-10 rounded-[2rem] flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-sm">
+                <span class="material-symbols-outlined text-3xl text-on-surface"
+                  style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+              </div>
+              <h3 class="font-headline text-2xl font-bold mb-4">Admin Command</h3>
+              <p class="text-on-surface-variant">Centralized control for hospital staff management, billing cycles, and
+                system-wide audit logs.</p>
+            </div>
+          </div>
+          <!-- Feature: Analytics -->
+          <div
+            class="md:col-span-2 bg-secondary text-on-secondary p-10 rounded-[2rem] flex flex-col md:flex-row gap-8 items-center">
+            <div class="flex-1">
+              <h3 class="font-headline text-2xl font-bold mb-4">Actionable Analytics</h3>
+              <p class="text-secondary-fixed/80">Transform raw clinical data into operational insights with built-in BI
+                dashboards.</p>
+            </div>
+            <div class="w-full md:w-1/2 bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/10">
+              <div class="h-32 flex items-end gap-2">
+                <div class="w-full bg-white/30 rounded-t-sm" style="height: 40%;"></div>
+                <div class="w-full bg-white/50 rounded-t-sm" style="height: 70%;"></div>
+                <div class="w-full bg-white/20 rounded-t-sm" style="height: 30%;"></div>
+                <div class="w-full bg-white rounded-t-sm" style="height: 90%;"></div>
+                <div class="w-full bg-white/60 rounded-t-sm" style="height: 50%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- DevOps Highlight Section -->
+    <section class="py-24 bg-on-background text-surface overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="font-headline text-4xl font-extrabold mb-8 leading-tight">Automated Reliability <br />at Every
+            Scale</h2>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary text-xl">sync</span>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">CI/CD Pipeline</h4>
+                <p class="text-sm text-surface-dim">Automated GitHub Actions workflow ensures zero-downtime deployments
+                  and rigid code testing.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
+                <span class="material-symbols-outlined text-secondary text-xl">deployed_code</span>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Docker Orchestration</h4>
+                <p class="text-sm text-surface-dim">Containerized microservices for consistent performance across dev,
+                  staging, and production.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-tertiary-fixed/10 flex items-center justify-center">
+                <span class="material-symbols-outlined text-tertiary-fixed text-xl">security</span>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Cloud-Native Security</h4>
+                <p class="text-sm text-surface-dim">End-to-end encryption and AWS IAM policies guarding every byte of
+                  patient data.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="absolute inset-0 bg-primary/20 rounded-full blur-[100px] -z-10"></div>
+          <div class="bg-surface-container-highest/5 border border-white/10 p-8 rounded-[2.5rem] font-mono text-sm">
+            <div class="flex gap-2 mb-4">
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <div class="space-y-2 opacity-80">
+              <p class="text-secondary">$ medcloud deploy --env production</p>
+              <p class="text-surface-dim">Checking cloud formation stacks...</p>
+              <p class="text-surface-dim">Running Docker container health checks...</p>
+              <p class="text-primary-fixed">Success: Instance med-core-v2.4 active</p>
+              <p class="text-surface-dim">Traffic routing: 100% to new release</p>
+              <p class="text-secondary-fixed">Deployment complete. Latency: 12ms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Final Call to Action -->
+    <section class="py-24 px-6 text-center">
+      <div
+        class="max-w-3xl mx-auto bg-surface-container-lowest p-16 rounded-[3rem] tonal-stacking border border-outline-variant/10">
+        <h2 class="font-headline text-4xl font-extrabold mb-6">Ready to upgrade your clinical workspace?</h2>
+        <p class="text-on-surface-variant mb-10 text-lg">Join 400+ medical facilities currently using MedCloud to
+          deliver better patient outcomes.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button onclick="window.location.href='login.html'"
+            class="bg-primary text-on-primary px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-primary/30 transition-all">Start
+            Your Free Trial</button>
+          <button onclick="window.location.href='appointment-booking.html'"
+            class="bg-white text-on-surface border border-outline-variant px-10 py-5 rounded-2xl font-bold text-lg hover:bg-surface-container transition-all">Book
+            Consultation</button>
+        </div>
+        <div class="mt-12 flex items-center justify-center gap-8 opacity-50 grayscale">
+          <span class="font-bold">AWS PARTNER</span>
+          <span class="font-bold">HIPAA COMPLIANT</span>
+          <span class="font-bold">SOC2 CERTIFIED</span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-surface-container-low pt-24 pb-12 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
+        <div class="col-span-2 lg:col-span-2">
+          <span class="text-xl font-black tracking-tighter text-primary mb-6 block">MedCloud Clinic</span>
+          <p class="text-on-surface-variant max-w-xs mb-6">The Clinical Atelier: Where high-precision science meets
+            human-centric design.</p>
+          <div class="flex gap-4">
+            <a class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-all"
+              href="mailto:hello@medcloudclinic.com?subject=Website%20inquiry"><span class="material-symbols-outlined">public</span></a>
+            <a class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-on-surface hover:bg-primary hover:text-white transition-all"
+              href="mailto:hello@medcloudclinic.com?subject=Partnership%20inquiry"><span class="material-symbols-outlined">share</span></a>
+          </div>
+        </div>
+        <div>
+          <h5 class="font-bold mb-6">Product</h5>
+          <ul class="space-y-4 text-on-surface-variant text-sm font-medium">
+            <li><a class="hover:text-primary transition-colors" href="#features">Overview</a></li>
+            <li><a class="hover:text-primary transition-colors" href="login.html">Appointments</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#architecture">Architecture</a></li>
+            <li><a class="hover:text-primary transition-colors" href="login.html">Portal Access</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-6">Company</h5>
+          <ul class="space-y-4 text-on-surface-variant text-sm font-medium">
+            <li><a class="hover:text-primary transition-colors" href="mailto:hello@medcloudclinic.com?subject=About%20MedCloud%20Clinic">Our Vision</a></li>
+            <li><a class="hover:text-primary transition-colors" href="mailto:hello@medcloudclinic.com?subject=Contact%20request">Contact</a></li>
+            <li><a class="hover:text-primary transition-colors" href="mailto:support@medcloudclinic.com?subject=Support%20request">Support</a></li>
+            <li><a class="hover:text-primary transition-colors" href="mailto:privacy@medcloudclinic.com?subject=Privacy%20policy%20request">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-6">Status</h5>
+          <div class="flex items-center gap-2 mb-4">
+            <span class="w-2 h-2 rounded-full bg-secondary"></span>
+            <span class="text-sm font-medium">All Systems Operational</span>
+          </div>
+          <p class="text-xs text-on-surface-variant">Cloud Core v2.4 <br />Latest update: 14 mins ago</p>
+        </div>
+      </div>
+      <div
+        class="pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between gap-4 items-center text-xs text-on-surface-variant font-medium">
+        <p>© 2024 MedCloud Clinical / Atelier Health. All rights reserved.</p>
+        <div class="flex gap-8">
+          <a class="hover:text-on-surface" href="mailto:legal@medcloudclinic.com?subject=Terms%20of%20service%20request">Terms of Service</a>
+          <a class="hover:text-on-surface" href="mailto:privacy@medcloudclinic.com?subject=Cookie%20policy%20request">Cookie Policy</a>
+          <a class="hover:text-on-surface" href="mailto:privacy@medcloudclinic.com?subject=Data%20processing%20request">Data Processing</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

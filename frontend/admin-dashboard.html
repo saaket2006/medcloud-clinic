@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Admin Command Center | MedCloud Clinic</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/tailwind-config.js"></script>
+  <script src="js/app.js"></script>
+</head>
+<body class="bg-surface font-manrope">
+  <!-- Top Navigation Bar -->
+  <header class="fixed top-0 left-0 right-0 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl z-50 flex items-center justify-between px-8 border-b border-slate-100 dark:border-slate-800">
+    <div class="flex items-center space-x-8">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+          <span class="material-symbols-outlined text-sm">clinical_notes</span>
+        </div>
+        <h2 class="text-lg font-black tracking-tighter text-blue-700 dark:text-blue-500">Atelier Health</h2>
+      </a>
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 dark:border-blue-400 pb-1"
+          href="admin-dashboard.html">Dashboard</a>
+        <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+          href="patient-dashboard.html">Patients</a>
+        <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+          href="appointment-booking.html">Schedules</a>
+        <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+          href="analytics.html">Analytics</a>
+      </nav>
+    </div>
+    <div class="flex items-center space-x-4">
+      <div class="relative group">
+        <button
+          class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95 duration-200">
+          <span class="material-symbols-outlined">notifications</span>
+        </button>
+        <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full ring-2 ring-white"></span>
+      </div>
+      <button
+        class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95 duration-200">
+        <span class="material-symbols-outlined">cloud_done</span>
+      </button>
+      <div class="relative group">
+        <div
+          class="h-8 w-8 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden cursor-pointer ring-2 ring-transparent group-hover:ring-primary/20 transition-all">
+          <img alt="User Profile" class="object-cover w-full h-full"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT_hvwq9TYIJqSJfUvJzjQDVCQ0GQw5TwXVgfC9vaHh8EXMEEkql0QQqArY4qHWmYo0yvKywCODYB4-YZuuJP0NbpnK6qq_bk1L5ARrTBYVOmRb7Ie3sqZ809mG3BCg_pjiSQuPZ9RO5Sa8J4sb0u1KLtjALZkY1VfazIhwMax7RxSGBNNKmXDTZPjrAjifLJVOs0bgzwr6P0Umtu_8jERCInKs1mOo2salH3aCSjFpv6fsTfPtqcrfkB0r543LrcL_-8A3c4-X60X" />
+        </div>
+        <!-- Dropdown Menu -->
+        <div
+          class="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 py-2 hidden group-hover:block z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+          <a class="flex items-center px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+            href="edit-profile.html">
+            <span class="material-symbols-outlined mr-3 text-lg">person_edit</span>
+            <span class="font-medium">Edit Profile</span>
+          </a>
+          <div class="h-[1px] bg-slate-100 dark:bg-slate-700 my-1 mx-2"></div>
+          <a class="flex items-center px-4 py-2.5 text-sm text-error hover:bg-error/5 transition-colors" href="login.html">
+            <span class="material-symbols-outlined mr-3 text-lg">logout</span>
+            <span class="font-medium">Logout</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar Navigation -->
+  <aside class="fixed left-0 top-16 bottom-0 w-64 bg-white dark:bg-slate-900 border-r border-slate-100 dark:border-slate-800 py-6 flex flex-col z-40">
+    <div class="px-6 mb-8">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+          <span class="material-symbols-outlined">clinical_notes</span>
+        </div>
+        <div>
+          <h2 class="text-lg font-black tracking-tighter text-blue-700 dark:text-blue-500">Atelier Health</h2>
+          <p class="text-[10px] uppercase tracking-widest text-slate-400">Cloud Core v2.4</p>
+        </div>
+      </a>
+    </div>
+    <nav class="flex-1 px-2 space-y-1">
+      <a class="flex items-center px-4 py-3 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-xl mx-2 transition-all duration-200 ease-in-out"
+        href="admin-dashboard.html">
+        <span class="material-symbols-outlined mr-3">dashboard</span>
+        <span>Overview</span>
+      </a>
+      <a class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 transition-all duration-200 ease-in-out"
+        href="appointment-booking.html">
+        <span class="material-symbols-outlined mr-3">event</span>
+        <span>Appointments</span>
+      </a>
+      <a class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 transition-all duration-200 ease-in-out"
+        href="medical-records.html">
+        <span class="material-symbols-outlined mr-3">folder_shared</span>
+        <span>Patient Records</span>
+      </a>
+      <a class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 transition-all duration-200 ease-in-out"
+        href="medical-records.html">
+        <span class="material-symbols-outlined mr-3">medication</span>
+        <span>Prescriptions</span>
+      </a>
+      <a class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 transition-all duration-200 ease-in-out"
+        href="admin-dashboard.html">
+        <span class="material-symbols-outlined mr-3">group</span>
+        <span>Staff Management</span>
+      </a>
+      <a class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 transition-all duration-200 ease-in-out"
+        href="edit-profile.html">
+        <span class="material-symbols-outlined mr-3">settings</span>
+        <span>Settings</span>
+      </a>
+    </nav>
+    <div class="px-6 mt-6">
+      <button
+        class="w-full py-3 bg-primary text-on-primary rounded-xl font-semibold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+        <span class="material-symbols-outlined text-lg">add</span>
+        New Appointment
+      </button>
+    </div>
+    <div class="px-2 pt-6 mt-6 border-t border-slate-200 dark:border-slate-800">
+      <a class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 transition-all"
+        href="mailto:support@medcloudclinic.com?subject=Admin%20support%20request">
+        <span class="material-symbols-outlined mr-3">help_outline</span>
+        <span>Support</span>
+      </a>
+      <div class="flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 mx-2">
+        <span class="material-symbols-outlined mr-3 text-secondary">cloud_queue</span>
+        <div class="flex flex-col">
+          <span class="text-xs font-bold text-slate-900">System Status</span>
+          <span class="text-[10px] text-secondary font-semibold">Operational</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <!-- Main Content Canvas -->
+  <main class="ml-64 mt-16 p-8 min-h-screen">
+    <!-- Header Section -->
+    <div class="flex justify-between items-end mb-10">
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tight text-on-surface">Command Center</h1>
+        <p class="text-on-surface-variant text-sm mt-1">Real-time infrastructure and clinical intelligence</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <span
+          class="px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold tracking-wide flex items-center gap-2">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+          </span>
+          v2.4 Deployed via CI/CD
+        </span>
+        <button
+          class="p-2 rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors">
+          <span class="material-symbols-outlined">refresh</span>
+        </button>
+      </div>
+    </div>
+    <!-- Bento Grid Layout -->
+    <div class="grid grid-cols-12 gap-6">
+      <!-- Metrics Column 1: System Overview -->
+      <div class="col-span-12 lg:col-span-8 grid grid-cols-3 gap-6">
+        <!-- Total Patients -->
+        <div class="bg-surface-container-lowest p-6 rounded-xl tonal-stacking shadow-sm">
+          <div class="flex justify-between items-start mb-4">
+            <div class="p-2 bg-primary-fixed text-primary rounded-lg">
+              <span class="material-symbols-outlined">patient_list</span>
+            </div>
+            <span class="text-secondary text-xs font-bold font-label">+12.4%</span>
+          </div>
+          <p class="text-on-surface-variant text-xs font-medium font-label uppercase tracking-wider">Total Patients</p>
+          <h3 class="text-3xl font-extrabold mt-1">12,842</h3>
+          <div class="mt-4 h-1 w-full bg-surface-container rounded-full overflow-hidden">
+            <div class="bg-primary h-full w-[70%]"></div>
+          </div>
+        </div>
+        <!-- Active Doctors -->
+        <div class="bg-surface-container-lowest p-6 rounded-xl tonal-stacking shadow-sm">
+          <div class="flex justify-between items-start mb-4">
+            <div class="p-2 bg-secondary-fixed text-secondary rounded-lg">
+              <span class="material-symbols-outlined">medical_services</span>
+            </div>
+            <span class="text-slate-400 text-xs font-bold font-label">Stable</span>
+          </div>
+          <p class="text-on-surface-variant text-xs font-medium font-label uppercase tracking-wider">Active Doctors</p>
+          <h3 class="text-3xl font-extrabold mt-1">412</h3>
+          <div class="mt-4 h-1 w-full bg-surface-container rounded-full overflow-hidden">
+            <div class="bg-secondary h-full w-[85%]"></div>
+          </div>
+        </div>
+        <!-- Monthly Appointments -->
+        <div class="bg-surface-container-lowest p-6 rounded-xl tonal-stacking shadow-sm">
+          <div class="flex justify-between items-start mb-4">
+            <div class="p-2 bg-tertiary-fixed text-tertiary rounded-lg">
+              <span class="material-symbols-outlined">calendar_today</span>
+            </div>
+            <span class="text-error text-xs font-bold font-label">-2.1%</span>
+          </div>
+          <p class="text-on-surface-variant text-xs font-medium font-label uppercase tracking-wider">Appointments</p>
+          <h3 class="text-3xl font-extrabold mt-1">3,205</h3>
+          <div class="mt-4 h-1 w-full bg-surface-container rounded-full overflow-hidden">
+            <div class="bg-tertiary h-full w-[45%]"></div>
+          </div>
+        </div>
+        <!-- Analytical Chart Section (Mock) -->
+        <div
+          class="col-span-3 bg-surface-container-lowest p-8 rounded-xl tonal-stacking relative overflow-hidden h-[320px] shadow-sm">
+          <div class="flex justify-between items-center mb-8">
+            <div>
+              <h4 class="text-lg font-bold">Patient Inflow Analysis</h4>
+              <p class="text-xs text-on-surface-variant">Last 30 days clinical data</p>
+            </div>
+            <div class="flex gap-2">
+              <button class="px-3 py-1 bg-surface-container text-xs font-bold rounded-lg">Weekly</button>
+              <button class="px-3 py-1 bg-primary text-on-primary text-xs font-bold rounded-lg">Monthly</button>
+            </div>
+          </div>
+          <!-- Visual Mock of a Chart -->
+          <div class="flex items-end justify-between h-40 w-full gap-2 px-4">
+            <div class="w-full bg-primary/10 rounded-t-lg h-[40%]"></div>
+            <div class="w-full bg-primary/10 rounded-t-lg h-[60%]"></div>
+            <div class="w-full bg-primary/10 rounded-t-lg h-[55%]"></div>
+            <div class="w-full bg-primary/10 rounded-t-lg h-[75%]"></div>
+            <div class="w-full bg-primary/10 rounded-t-lg h-[90%]"></div>
+            <div class="w-full bg-primary/20 rounded-t-lg h-[85%] border-t-2 border-primary relative">
+              <div
+                class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-[10px] py-1 px-2 rounded-md">
+                842</div>
+            </div>
+            <div class="w-full bg-primary/10 rounded-t-lg h-[65%]"></div>
+            <div class="w-full bg-primary/10 rounded-t-lg h-[50%]"></div>
+            <div class="w-full bg-primary/10 rounded-t-lg h-[70%]"></div>
+            <div class="w-full bg-primary/10 rounded-t-lg h-[80%]"></div>
+            <div class="w-full bg-primary/10 rounded-t-lg h-[95%]"></div>
+            <div class="w-full bg-primary/10 rounded-t-lg h-[45%]"></div>
+          </div>
+          <div class="flex justify-between mt-4 text-[10px] font-bold text-slate-400 px-4">
+            <span>OCT 01</span>
+            <span>OCT 10</span>
+            <span>OCT 20</span>
+            <span>OCT 30</span>
+          </div>
+        </div>
+      </div>
+      <!-- Side Column: System Health Monitor -->
+      <div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+        <div class="bg-inverse-surface text-inverse-on-surface p-8 rounded-xl shadow-sm flex flex-col h-full">
+          <div class="flex items-center gap-3 mb-8">
+            <span class="material-symbols-outlined text-secondary-fixed">memory</span>
+            <h4 class="text-lg font-bold">Cloud Infrastructure</h4>
+          </div>
+          <div class="space-y-8">
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-2 uppercase tracking-widest opacity-70">
+                <span>CPU Usage</span>
+                <span>24%</span>
+              </div>
+              <div class="h-2 w-full bg-white/10 rounded-full">
+                <div class="h-full bg-secondary-fixed rounded-full" style="width: 24%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-2 uppercase tracking-widest opacity-70">
+                <span>Memory (RAM)</span>
+                <span>5.2 / 16 GB</span>
+              </div>
+              <div class="h-2 w-full bg-white/10 rounded-full">
+                <div class="h-full bg-tertiary-fixed rounded-full" style="width: 32%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-2 uppercase tracking-widest opacity-70">
+                <span>API Latency</span>
+                <span>42ms</span>
+              </div>
+              <div class="flex items-end gap-1 h-8">
+                <div class="w-2 h-4 bg-secondary-fixed/40 rounded-t-sm"></div>
+                <div class="w-2 h-6 bg-secondary-fixed/40 rounded-t-sm"></div>
+                <div class="w-2 h-5 bg-secondary-fixed/40 rounded-t-sm"></div>
+                <div class="w-2 h-8 bg-secondary-fixed rounded-t-sm"></div>
+                <div class="w-2 h-4 bg-secondary-fixed/40 rounded-t-sm"></div>
+                <div class="w-2 h-6 bg-secondary-fixed/40 rounded-t-sm"></div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-auto pt-8 border-t border-white/5">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></div>
+                <span class="text-[10px] font-bold uppercase tracking-widest">Global CDN Active</span>
+              </div>
+              <span class="text-[10px] opacity-50">Region: US-EAST-1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Table Section: User Management -->
+      <div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+        <div class="px-8 py-6 border-b border-surface-container flex justify-between items-center">
+          <h4 class="text-lg font-bold">Staff &amp; Role Management</h4>
+          <div class="flex gap-4">
+            <div class="relative">
+              <span
+                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+              <input
+                class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg text-xs focus:ring-2 focus:ring-primary w-64"
+                placeholder="Search staff..." type="text" />
+            </div>
+            <button
+              class="px-4 py-2 border border-outline-variant text-on-surface rounded-lg text-xs font-bold hover:bg-surface-container-low transition-colors">Export
+              CSV</button>
+          </div>
+        </div>
+        <table class="w-full">
+          <thead>
+            <tr class="bg-surface-container-low text-left">
+              <th class="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Name</th>
+              <th class="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Role</th>
+              <th class="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Status</th>
+              <th class="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Activity
+              </th>
+              <th class="px-8 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant"></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-surface-container">
+            <tr class="hover:bg-surface-container-low transition-colors group">
+              <td class="px-8 py-4">
+                <div class="flex items-center gap-3">
+                  <img class="w-8 h-8 rounded-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsDZ2_8DSClzcQXWZwQHZMqh57SNOyEyVjur-vHhm4HK9r5koObyY814Y_Zq3Zul-hMLfLLa2NW7WFK7hEde9bOZtsIODz_jE0TSA6HPiF4xT6nRtbO1JQPowZJujq8q94ElWZu27t-TVoDKJUi0Zvf4iEDQ8Zl5VvkEvsvQ-b12A35H0_3CXs-FrtsJczXhVNybqXeNokQTAKTgPSmb0lYrqwvE-bXtYeCRDQWLQvPp_2wE65SefHN_yC0kZkyEVuNeNuOVz_nZx6" />
+                  <div>
+                    <p class="text-sm font-bold text-on-surface">Dr. Julian Thorne</p>
+                    <p class="text-[10px] text-on-surface-variant">Cardiology Department</p>
+                  </div>
+                </div>
+              </td>
+              <td class="px-8 py-4">
+                <span
+                  class="px-2 py-1 bg-primary-fixed text-on-primary-fixed text-[10px] font-bold rounded-md">SENIOR_DOC</span>
+              </td>
+              <td class="px-8 py-4">
+                <div class="flex items-center gap-1.5">
+                  <div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+                  <span class="text-xs font-medium text-on-surface">Available</span>
+                </div>
+              </td>
+              <td class="px-8 py-4">
+                <span class="text-xs text-on-surface-variant font-medium">Logged in 2m ago</span>
+              </td>
+              <td class="px-8 py-4 text-right">
+                <button class="p-2 text-slate-400 hover:text-primary transition-colors">
+                  <span class="material-symbols-outlined text-lg">more_horiz</span>
+                </button>
+              </td>
+            </tr>
+            <tr class="hover:bg-surface-container-low transition-colors group">
+              <td class="px-8 py-4">
+                <div class="flex items-center gap-3">
+                  <img class="w-8 h-8 rounded-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd32itQ0KTGfd-OW4YcqtYxC2JSqGbnewqSYSocEKi4OE9gz9-TQm3aqgipKMtJvEM_8O5afQ1StJDF9nBHZpj8u5FN06lIkR8HJhb9tBSekcr_gspLUc5I-U9-EGgkApKYMvYU82YbzyYaPblMcjK41WSirKHi_bDwtpPOmBMPu4fEwV86gyLWAP1Yoqg4PWYZTiQt05nzEsKh4ONY63NQMzWPuQK3rjzqsZiaTJiu1zqmUSc5O6y0WeeC-N3bKq831SkyaV5K4LK" />
+                  <div>
+                    <p class="text-sm font-bold text-on-surface">Dr. Elena Rodriguez</p>
+                    <p class="text-[10px] text-on-surface-variant">Neurology Specialist</p>
+                  </div>
+                </div>
+              </td>
+              <td class="px-8 py-4">
+                <span
+                  class="px-2 py-1 bg-primary-fixed text-on-primary-fixed text-[10px] font-bold rounded-md">SENIOR_DOC</span>
+              </td>
+              <td class="px-8 py-4">
+                <div class="flex items-center gap-1.5">
+                  <div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+                  <span class="text-xs font-medium text-on-surface">In Surgery</span>
+                </div>
+              </td>
+              <td class="px-8 py-4">
+                <span class="text-xs text-on-surface-variant font-medium">Logged in 4h ago</span>
+              </td>
+              <td class="px-8 py-4 text-right">
+                <button class="p-2 text-slate-400 hover:text-primary transition-colors">
+                  <span class="material-symbols-outlined text-lg">more_horiz</span>
+                </button>
+              </td>
+            </tr>
+            <tr class="hover:bg-surface-container-low transition-colors group">
+              <td class="px-8 py-4">
+                <div class="flex items-center gap-3">
+                  <img class="w-8 h-8 rounded-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX2MRu0qZ6F9p1jf6iTXWoSyzGlldmE_zGFG_C_0JNn_wqx0hmtvYs5jEGxxUF4UtWzq3TsnmvTwsu77iIDUBHwsNN2KvXC2gc87BdAc3sUiHTjth1JazZE_XBzwjrhxdrOgy4WZtO6tMfiySdgS28HsaVCvYRiCoFAXqpd_4TwFqrcuBPEiWjzkAOpCw1dd4ACQGqDSI8RkbjgGaqB62e8YwFVA7cTNhr4feOEEHwIc_FzjWvDP2m6B7-yCNtoMA9P9nwB21gka3g" />
+                  <div>
+                    <p class="text-sm font-bold text-on-surface">Marcus Chen</p>
+                    <p class="text-[10px] text-on-surface-variant">Hospital Administration</p>
+                  </div>
+                </div>
+              </td>
+              <td class="px-8 py-4">
+                <span
+                  class="px-2 py-1 bg-surface-container-highest text-on-surface text-[10px] font-bold rounded-md">ADMIN_STAFF</span>
+              </td>
+              <td class="px-8 py-4">
+                <div class="flex items-center gap-1.5">
+                  <div class="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
+                  <span class="text-xs font-medium text-on-surface">Offline</span>
+                </div>
+              </td>
+              <td class="px-8 py-4">
+                <span class="text-xs text-on-surface-variant font-medium">Last active 1d ago</span>
+              </td>
+              <td class="px-8 py-4 text-right">
+                <button class="p-2 text-slate-400 hover:text-primary transition-colors">
+                  <span class="material-symbols-outlined text-lg">more_horiz</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="p-6 flex justify-center">
+          <button class="text-primary text-xs font-bold hover:underline">View All 412 Members</button>
+        </div>
+      </div>
+      <!-- Audit Logs Section -->
+      <div class="col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-xl shadow-sm p-8">
+        <div class="flex justify-between items-center mb-8">
+          <h4 class="text-lg font-bold">Audit Logs</h4>
+          <span
+            class="p-1.5 bg-surface-container text-on-surface-variant rounded-md cursor-pointer hover:bg-surface-variant transition-colors">
+            <span class="material-symbols-outlined text-sm">filter_list</span>
+          </span>
+        </div>
+        <div
+          class="space-y-6 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-[1px] before:bg-surface-container">
+          <!-- Log Item 1 -->
+          <div class="flex gap-4 relative">
+            <div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center z-10">
+              <span class="material-symbols-outlined text-[12px] text-on-secondary-container"
+                style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-on-surface">v2.4 Mainframe Deploy</p>
+              <p class="text-[10px] text-on-surface-variant mt-0.5">Automated CI/CD pipeline successful</p>
+              <p class="text-[9px] font-bold text-slate-400 uppercase mt-1">2 mins ago</p>
+            </div>
+          </div>
+          <!-- Log Item 2 -->
+          <div class="flex gap-4 relative">
+            <div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center z-10">
+              <span class="material-symbols-outlined text-[12px] text-on-primary-container"
+                style="font-variation-settings: 'FILL' 1;">security</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-on-surface">Privilege Escalation</p>
+              <p class="text-[10px] text-on-surface-variant mt-0.5">Admin access granted to Dr. Thorne</p>
+              <p class="text-[9px] font-bold text-slate-400 uppercase mt-1">14 mins ago</p>
+            </div>
+          </div>
+          <!-- Log Item 3 -->
+          <div class="flex gap-4 relative">
+            <div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center z-10">
+              <span class="material-symbols-outlined text-[12px] text-on-surface-variant">person_add</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-on-surface">New Patient Admitted</p>
+              <p class="text-[10px] text-on-surface-variant mt-0.5">ID: #PX-9920 - General Ward</p>
+              <p class="text-[9px] font-bold text-slate-400 uppercase mt-1">1 hour ago</p>
+            </div>
+          </div>
+          <!-- Log Item 4 -->
+          <div class="flex gap-4 relative">
+            <div class="w-6 h-6 rounded-full bg-error-container flex items-center justify-center z-10">
+              <span class="material-symbols-outlined text-[12px] text-error">warning</span>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-error">Database Latency Alert</p>
+              <p class="text-[10px] text-on-surface-variant mt-0.5">Latency exceeded 200ms in DB-NODE-2</p>
+              <p class="text-[9px] font-bold text-slate-400 uppercase mt-1">3 hours ago</p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="w-full mt-10 py-3 border-2 border-dashed border-surface-container text-on-surface-variant text-[10px] font-black uppercase tracking-widest rounded-xl hover:border-primary/30 hover:text-primary transition-all">
+          Generate Full Audit Report
+        </button>
+      </div>
+    </div>
+    <!-- Footer / System Branding -->
+    <footer
+      class="mt-20 py-8 border-t border-surface-container flex justify-between items-center text-on-surface-variant">
+      <div class="flex items-center gap-6">
+        <span class="text-[10px] font-bold uppercase tracking-widest">© 2024 MedCloud Systems</span>
+        <span
+          class="text-[10px] font-bold uppercase tracking-widest cursor-pointer hover:text-primary transition-colors">Security
+          Policy</span>
+        <span
+          class="text-[10px] font-bold uppercase tracking-widest cursor-pointer hover:text-primary transition-colors">API
+          Reference</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-[10px] font-bold uppercase tracking-widest opacity-50">Cloud Engine: High Density</span>
+        <div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
