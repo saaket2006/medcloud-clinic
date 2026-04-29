@@ -33,7 +33,7 @@ public class AuthenticationService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(request.getRole())
                 .build();
-        repository.save(user);
+        repository.save(java.util.Objects.requireNonNull(user));
         
         var userDetails = new org.springframework.security.core.userdetails.User(
                     user.getEmail(),

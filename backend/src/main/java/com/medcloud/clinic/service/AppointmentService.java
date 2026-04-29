@@ -22,6 +22,6 @@ public class AppointmentService {
     }
 
     public Appointment createAppointment(Appointment appointment) {
-        return repository.save(appointment);
+        return repository.save(java.util.Objects.requireNonNull(appointment));
     }
 }

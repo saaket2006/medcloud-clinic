@@ -1,52 +1,68 @@
 # MedCloud Clinic
 
-A cloud-enabled Hospital Management System that digitizes patient records, appointments, and hospital operations with automated build, testing, and deployment.
+A production-ready, cloud-enabled Hospital Management System (HMS) designed to digitize patient records, manage appointments, and streamline hospital operations. This project features a robust Spring Boot backend, a modern localized frontend, and a complete containerized deployment pipeline.
 
-## Recent Updates (Frontend Architecture Refactor)
+## 🌟 Branding & Localization
+The system is fully localized for the Indian healthcare context, featuring:
+- **Main Administrator**: Saaket Baldawa
+- **Regional Context**: Healthcare facilities and providers localized to major Indian medical hubs (e.g., AIIMS Delhi, Apollo Hospitals).
+- **Identity Management**: Integrated identity injection ensuring the owner's profile is reflected across all administrative touchpoints.
 
-The frontend application has been fully refactored from a monolithic HTML structure into a maintainable, modular, and performant architecture:
+## 🛠️ Technology Stack
+- **Frontend**: HTML5, Vanilla JavaScript, TailwindCSS (Modern, modular architecture).
+- **Backend**: Java 17, Spring Boot 3.2.4 (Security, Data JPA, Hibernate, Validation).
+- **Database**: 
+  - **MySQL 8.0**: Production-ready persistent storage.
+  - **H2**: In-memory database support for rapid local development/testing.
+- **DevOps & Infrastructure**:
+  - **Docker & Docker Compose**: Full-stack orchestration.
+  - **Flyway**: Database version control and migrations.
+  - **GitHub Actions**: Automated CI/CD pipeline for builds and testing.
 
-*   **Modular Architecture**: Fully segregated static HTML pages, Cascading Style Sheets (`css/styles.css`), and JavaScript behaviors (`js/app.js`, `js/tailwind-config.js`). Native HTML links connect the pieces cleanly without complex build systems.
-*   **Structural Integrity**: Verified and standardized `<head>` tags and meta configurations across all key dashboard pages ensuring layout stability and performance (including `doctor-dashboard.html`, `appointment-booking.html`, `edit-profile.html`, etc.).
-*   **Protected Dashboard Routes**: Added client-side mock authentication logic inside `js/app.js` guaranteeing that "No navigation is allowed to dashboard endpoints until a user explicitly logs in."
-*   **Consistent Navigation**: Fully interconnected layouts. The "Clinical Atelier" title acts as a global brand link that directly redirects to the main landing view (`index.html`).
-*   **Tailwind Standardization**: Extracted inline configuration tags previously embedded directly within the HTML to global configuration files, drastically reducing the overall frontend code footprint.
-
-## Project Structure
-
+## 📂 Project Structure
 ```text
 medcloud-clinic/
-└── frontend/
-    ├── css/
-    │   └── styles.css          # Extracted global styles and custom utility classes
-    ├── js/
-    │   ├── app.js              # State logic, user login constraints, API integration mocks
-    │   └── tailwind-config.js  # Global Tailwind configuration 
-    ├── index.html              # Landing Page
-    ├── login.html              # Auth Portal
-    ├── admin-dashboard.html    # Administrative overview
-    ├── patient-dashboard.html  # Patient-facing features
-    ├── doctor-dashboard.html   # Doctor access and schedule 
-    ├── appointment-booking.html
-    ├── medical-records.html
-    ├── analytics.html
-    └── edit-profile.html       # Profile and identity management
+├── backend/               # Spring Boot Application
+│   ├── src/main/java/     # Core logic (Security, Controllers, Services)
+│   ├── src/main/resources/# Configuration and Flyway migrations
+│   └── Dockerfile         # Multi-stage production build
+├── frontend/              # Localized User Interface
+│   ├── js/                # app.js (API Integration), tailwind-config.js
+│   ├── css/               # Modular styles.css
+│   └── *.html             # Role-based dashboards (Admin, Doctor, Patient)
+└── docker-compose.yml     # System-wide orchestration
 ```
 
-## Features
+## 🚀 Key Features
+1.  **Role-Based Access Control (RBAC)**: Distinct, secure dashboards for Administrators, Doctors, and Patients.
+2.  **Stateless Authentication**: Secure JWT-based login flow with persistent session management.
+3.  **Appointment Management**: Automated scheduling and doctor availability tracking.
+4.  **Electronic Medical Records (EMR)**: Digital dossiers for patient history and clinical notes.
+5.  **Analytics & Monitoring**: Real-time hospital metrics and system audit logs.
 
-1.  **Role-Based Dashboards**: Segmented data visibility explicitly dedicated for Administrators, Doctors, and Patients.
-2.  **Modular Stylings**: Clean, highly performant UI relying on Tailwind CSS and Google Fonts (Manrope, Inter).
-3.  **Modern UI/UX**: Implements a highly accessible design scheme adhering to modern user behavior patterns (Responsive containers, unified sidebar navigation).
-4.  **Static Execution Flow**: Easily adaptable to immediate deployment upon CDN platforms (Vercel, Netlify) directly out of the box because no complex bundling engines are inherently required to display the UI correctly.
+## 💻 Getting Started
 
-## Setup Instructions
+### Option 1: Full Stack (Docker - Recommended)
+The fastest way to run the entire system (Backend + Database) is via Docker Compose:
+1. Ensure Docker is running on your system.
+2. Run the following command in the root directory:
+   ```powershell
+   docker-compose up --build
+   ```
+3. The Backend API will be available at `http://localhost:8081`.
+4. Open `frontend/index.html` in your browser to start using the system.
 
-1.  Clone this repository to your local machine.
-2.  In the `frontend/` directory, simply open `index.html` in your web browser.
-3.  Proceed to the "Login" flow to gain simulated access to the remaining dynamic dashboard components.
+### Option 2: Local Development
+**Backend**:
+1. Navigate to `/backend`.
+2. Run `./mvnw spring-boot:run`. (Ensure you have a local MySQL or use the H2 profile).
 
-## Target Integrations
-*(Future Scope)*
-- Expand `js/app.js` with functional `fetch()` APIs calling robust, containerized Node.js/Python server clusters.
-- Store real session JSON Web Tokens (JWT) upon successful authentication in cookies/local storage.
+**Frontend**:
+1. Simply open `frontend/index.html` in any modern web browser.
+2. Use the **Auth Portal** (`login.html`) to access the dynamic dashboards.
+
+## 🔧 System Architecture Details
+- **Security**: Managed by Spring Security with custom `JwtService` and `SecurityConfiguration`.
+- **Error Handling**: `GlobalExceptionHandler` ensures consistent, readable JSON responses for all API errors.
+- **Data Persistence**: Uses Spring Data JPA with `Role` enum differentiation for users and dedicated `Appointment` tracking.
+- **Migration**: Flyway manages the `V1__Initial_Schema.sql` to ensure database consistency across environments.
