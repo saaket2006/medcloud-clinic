@@ -230,8 +230,16 @@ async function initDashboard() {
     const userNameElement = document.getElementById('user-name');
     const userRoleElement = document.getElementById('user-role');
     
-    // In a real app, we'd fetch user profile. For now, use role as name if not available.
-    if (userNameElement) userNameElement.textContent = role.charAt(0) + role.slice(1).toLowerCase() + " User";
+    // Set names based on role with Indian names and specifically Saaket Baldawa for Admin
+    if (userNameElement) {
+        if (role === 'ADMIN') {
+            userNameElement.textContent = "Saaket Baldawa";
+        } else if (role === 'DOCTOR') {
+            userNameElement.textContent = "Dr. Aryan Sharma";
+        } else {
+            userNameElement.textContent = "Arjun Mehta";
+        }
+    }
     if (userRoleElement) userRoleElement.textContent = role + " Access";
 
     // Load Appointments
