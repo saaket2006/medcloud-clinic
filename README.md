@@ -46,7 +46,7 @@ medcloud-clinic/
 The fastest way to run the entire system (Backend + Database) is via Docker Compose:
 1. Ensure Docker is running on your system.
 2. Run the following command in the root directory:
-   ```powershell
+   ```
    docker-compose up --build
    ```
 3. The Backend API will be available at `http://localhost:8081`.
