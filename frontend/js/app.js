@@ -115,13 +115,6 @@ async function handleLogin(event) {
     const data = await response.json();
 
     if (response.ok) {
-      if (selectedRole && data.role !== selectedRole) {
-        showNotification(`Selected role does not match user account (${data.role}).`, 'error');
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalBtnText;
-        return;
-      }
-
       showNotification('Login successful! Redirecting...', 'success');
       localStorage.setItem('medcloud_token', data.token);
       localStorage.setItem('medcloud_role', data.role);
@@ -168,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkAuth();
 
     // Login Form
-    const loginForm = document.querySelector('form[onsubmit="handleLogin(event)"]');
+    const loginForm = document.getElementById('login-form') || document.querySelector('form[onsubmit="handleLogin(event)"]');
     if (loginForm) {
         loginForm.removeAttribute('onsubmit');
         loginForm.addEventListener('submit', handleLogin);
