@@ -1,5 +1,7 @@
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 body {
@@ -28,6 +30,39 @@ h4,
 
 .tonal-stacking {
   background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.02));
+}
+
+.auth-checking body {
+  visibility: hidden;
+}
+
+a[href="index.html"] .w-10,
+a[href="index.html"] .h-10 {
+  flex-shrink: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+img[alt*="Profile"],
+img[data-alt*="portrait"],
+img[data-alt*="professional"] {
+  display: block;
+  object-fit: cover;
+}
+
+textarea {
+  min-height: 8rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
 }
 
 ::-webkit-scrollbar { width: 6px; }

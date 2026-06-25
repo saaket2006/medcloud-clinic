@@ -38,4 +38,11 @@ public class AppointmentController {
         appointment.setPatient(user);
         return ResponseEntity.ok(appointmentService.createAppointment(appointment));
     }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('PATIENT') or hasRole('ADMIN')")
+    public ResponseEntity<Void> cancelAppointment(@PathVariable Long id) {
+        appointmentService.deleteAppointment(id);
+        return ResponseEntity.ok().build();
+    }
 }

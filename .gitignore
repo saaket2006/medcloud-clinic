@@ -4,6 +4,14 @@
 
 # Log file
 *.log
+/logs/
+/backend/logs/
+
+# Build and IDE outputs
+/backend/target/
+/.agents/
+/qa/audit-results/
+/.vscode/
 
 # BlueJ files
 *.ctxt
@@ -23,3 +31,4 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+

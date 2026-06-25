@@ -24,7 +24,7 @@
           <span class="material-symbols-outlined" data-icon="clinical_notes">clinical_notes</span>
         </div>
         <div>
-          <h1 class="text-lg font-black tracking-tighter text-blue-700">Atelier Health</h1>
+          <h1 class="text-lg font-black tracking-tighter text-blue-700">MedCloud Clinic</h1>
           <p class="text-[10px] uppercase tracking-widest text-slate-500">Cloud Core v2.4</p>
         </div>
       </a>
@@ -46,11 +46,7 @@
         <span class="material-symbols-outlined" data-icon="folder_shared">folder_shared</span>
         <span>Patient Records</span>
       </a>
-      <a class="text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 flex items-center gap-3 px-4 py-3 transition-all duration-200 ease-in-out"
-        href="medical-records.html">
-        <span class="material-symbols-outlined" data-icon="medication">medication</span>
-        <span>Prescriptions</span>
-      </a>
+
       <a class="text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl mx-2 flex items-center gap-3 px-4 py-3 transition-all duration-200 ease-in-out"
         href="doctor-dashboard.html">
         <span class="material-symbols-outlined" data-icon="group">group</span>
@@ -133,10 +129,10 @@
           <span class="text-[10px] font-bold text-primary tracking-widest uppercase">Upcoming</span>
         </div>
         <p class="text-on-surface-variant text-sm font-medium">Next Appointment</p>
-        <h3 class="text-4xl font-extrabold text-on-surface my-1">03</h3>
-        <p class="text-xs text-on-surface-variant flex items-center gap-1 mt-2">
-          <span class="material-symbols-outlined text-xs text-secondary" data-icon="verified">verified</span>
-          Confirmed for this week
+        <h3 id="upcoming-appointments-count" class="text-4xl font-extrabold text-on-surface my-1">0</h3>
+        <p id="upcoming-appointments-status" class="text-xs text-on-surface-variant flex items-center gap-1 mt-2">
+          <span class="material-symbols-outlined text-xs text-on-surface-variant">info</span>
+          No upcoming appointments
         </p>
       </div>
       <!-- Top Stats Card 2: Record Update -->
@@ -176,88 +172,17 @@
         <div class="bg-surface-container-lowest rounded-xl p-8 shadow-ambient">
           <div class="flex justify-between items-center mb-8">
             <h3 class="text-xl font-bold font-headline text-on-surface">My Appointments</h3>
-            <button class="text-sm font-semibold text-primary hover:underline transition-all">View Full History</button>
+            <button id="btn-view-history" class="text-sm font-semibold text-primary hover:underline transition-all">View Full History</button>
           </div>
-          <div class="space-y-4">
-            <!-- Appointment Row 1 -->
-            <div
-              class="flex items-center justify-between p-4 bg-surface rounded-xl hover:bg-surface-container-low transition-colors group">
-              <div class="flex items-center gap-4">
-                <img alt="Dr. Sangeeta Rao" class="w-12 h-12 rounded-full object-cover"
-                  data-alt="portrait of a female doctor with a stethoscope, clean white clinical background, warm professional lighting"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuADMxcEe23s629vZNIREjMaYtkW2LmP7OYwxUazQ_ez8s31VlTrCZ-1rSX7qgTM-Uu-5VmwdgA_36bMgnbHMEpjmU53uSCaw8mjdFrKSKuE9wA2VYW87oTq2rejTzolA80Wv2JKY4rlPgw8MxKKAN-TkyPGiyyjUsPlNEV07AcYvAkIlpQWVK1wjrZfgcoVvgpr42PoDoaByzo1CLtSYbszaTUTCepKOQK6JyeipASDfJCRsnzN1BZbU26OIRfBlKF_n8iY_s-W4bPm" />
-                <div>
-                  <p class="text-on-surface font-bold">Dr. Sangeeta Rao</p>
-                  <p class="text-xs text-on-surface-variant">General Cardiology • 10:30 AM</p>
-                </div>
-              </div>
-              <div class="text-right flex items-center gap-6">
-                <div class="hidden sm:block">
-                  <p class="text-sm font-medium text-on-surface">Oct 24, 2023</p>
-                  <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Main Building, Wing B</p>
-                </div>
-                <span
-                  class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[11px] font-bold rounded-full uppercase tracking-tighter">Confirmed</span>
-                <span
-                  class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity"
-                  data-icon="chevron_right">chevron_right</span>
-              </div>
-            </div>
-            <!-- Appointment Row 2 -->
-            <div
-              class="flex items-center justify-between p-4 bg-surface rounded-xl hover:bg-surface-container-low transition-colors group">
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary">
-                  <span class="material-symbols-outlined" data-icon="neurology">neurology</span>
-                </div>
-                <div>
-                  <p class="text-on-surface font-bold">Dr. Rajesh Iyer</p>
-                  <p class="text-xs text-on-surface-variant">Neuro-Consultation • 02:15 PM</p>
-                </div>
-              </div>
-              <div class="text-right flex items-center gap-6">
-                <div class="hidden sm:block">
-                  <p class="text-sm font-medium text-on-surface">Oct 26, 2023</p>
-                  <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Digital Tele-Consult</p>
-                </div>
-                <span
-                  class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[11px] font-bold rounded-full uppercase tracking-tighter">Pending</span>
-                <span
-                  class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity"
-                  data-icon="chevron_right">chevron_right</span>
-              </div>
-            </div>
-            <!-- Appointment Row 3 -->
-            <div
-              class="flex items-center justify-between p-4 bg-surface rounded-xl hover:bg-surface-container-low transition-colors group">
-              <div class="flex items-center gap-4">
-                <img alt="Dr. Ananya Iyer" class="w-12 h-12 rounded-full object-cover"
-                  data-alt="portrait of a Hispanic female medical researcher in a lab coat, bright sterile environment, sophisticated professional photography"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuChPAZoKvzY0orvzdSV5qLiFmXMuQ-2ym-TkvM7pJny5_t2jAUR52kLqzXw83mb6whJ8sJ1DxWvnIppoHmUgB_PTLv7MTuqq3nEkfAnXqUSZ5PgNYtzWqjikYzVbpk6VD9nqU6-e3tdVifpx78_BmNxcqYGgGNQdGy7IW_MydSRqniATUcFtx_964CFDWNBIF9INBzEm0ESjv-VkJBAYyQ3Dktv-pHHDIpJETQ6IjN6RxwRiok1XMOTa5jKzJqlFKde6iTo3LAzgjQJ" />
-                <div>
-                  <p class="text-on-surface font-bold">Dr. Ananya Iyer</p>
-                  <p class="text-xs text-on-surface-variant">Diagnostic Screening • 09:00 AM</p>
-                </div>
-              </div>
-              <div class="text-right flex items-center gap-6">
-                <div class="hidden sm:block">
-                  <p class="text-sm font-medium text-on-surface">Oct 30, 2023</p>
-                  <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Diagnostic Center 04</p>
-                </div>
-                <span
-                  class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[11px] font-bold rounded-full uppercase tracking-tighter">Confirmed</span>
-                <span
-                  class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity"
-                  data-icon="chevron_right">chevron_right</span>
-              </div>
-            </div>
+          <div id="appointments-list" class="space-y-4">
+            <div class="p-8 text-center text-on-surface-variant">Loading appointments...</div>
           </div>
         </div>
         <!-- Doctor Availability Widget -->
         <div class="bg-surface-container-lowest rounded-xl p-8 shadow-ambient">
           <h3 class="text-xl font-bold font-headline text-on-surface mb-6">Available Specialists Today</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div
+            <div id="widget-cardiology"
               class="p-4 border border-outline-variant/15 rounded-xl flex items-center gap-4 hover:bg-primary/5 transition-colors cursor-pointer group">
               <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center">
                 <span class="material-symbols-outlined text-primary" data-icon="monitor_heart">monitor_heart</span>
@@ -270,7 +195,7 @@
                 class="material-symbols-outlined ml-auto text-primary group-hover:translate-x-1 transition-transform"
                 data-icon="arrow_forward">arrow_forward</span>
             </div>
-            <div
+            <div id="widget-psychiatry"
               class="p-4 border border-outline-variant/15 rounded-xl flex items-center gap-4 hover:bg-primary/5 transition-colors cursor-pointer group">
               <div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center">
                 <span class="material-symbols-outlined text-primary" data-icon="psychology">psychology</span>

@@ -24,4 +24,10 @@ public class AppointmentService {
     public Appointment createAppointment(Appointment appointment) {
         return repository.save(java.util.Objects.requireNonNull(appointment));
     }
+
+    public void deleteAppointment(Long id) {
+        Appointment appointment = repository.findById(id).orElseThrow();
+        appointment.setStatus(com.medcloud.clinic.model.AppointmentStatus.CANCELLED);
+        repository.save(appointment);
+    }
 }

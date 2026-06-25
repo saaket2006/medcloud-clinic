@@ -50,7 +50,7 @@
   <aside
     class="h-screen w-64 fixed left-0 top-0 z-40 bg-slate-50 dark:bg-slate-950 flex flex-col py-6 space-y-1 font-manrope text-sm font-medium">
     <a href="index.html" class="px-6 mb-8 mt-16 block cursor-pointer hover:opacity-80 transition-opacity">
-      <div class="text-lg font-black tracking-tighter text-blue-700 dark:text-blue-500">Atelier Health</div>
+      <div class="text-lg font-black tracking-tighter text-blue-700 dark:text-blue-500">MedCloud Clinic</div>
       <div class="text-xs text-on-surface-variant font-normal">Cloud Core v2.4</div>
     </a>
     <nav class="flex-1 px-2 space-y-1">
@@ -66,10 +66,7 @@
         href="medical-records.html">
         <span class="material-symbols-outlined">folder_shared</span> Patient Records
       </a>
-      <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-in-out"
-        href="medical-records.html">
-        <span class="material-symbols-outlined">medication</span> Prescriptions
-      </a>
+
       <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-in-out"
         href="doctor-dashboard.html">
         <span class="material-symbols-outlined">group</span> Staff Management
@@ -105,10 +102,10 @@
         </p>
       </div>
       <div class="flex gap-3">
-        <button
+        <button id="btn-discard-profile"
           class="px-6 py-2.5 rounded-xl text-on-surface-variant font-medium hover:bg-surface-container transition-colors">Discard
           Changes</button>
-        <button
+        <button id="btn-save-profile"
           class="px-8 py-2.5 rounded-xl bg-primary text-on-primary font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all">Save
           Changes</button>
       </div>
@@ -134,27 +131,27 @@
               <div class="grid grid-cols-2 gap-6">
                 <div class="space-y-2">
                   <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Full Name</label>
-                  <input
+                  <input id="profile-name"
                     class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary transition-all"
                     type="text" value="Saaket Baldawa" />
                 </div>
                 <div class="space-y-2">
                   <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Medical ID</label>
-                  <input
+                  <input id="profile-medical-id"
                     class="w-full bg-surface-container-highest/50 border-0 rounded-xl px-4 py-3 text-on-surface-variant cursor-not-allowed"
                     readonly="" type="text" value="MD-992-04" />
                 </div>
                 <div class="space-y-2">
                   <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Email
                     Address</label>
-                  <input
+                  <input id="profile-email"
                     class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary transition-all"
                     type="email" value="saaket@medcloudclinic.com" />
                 </div>
                 <div class="space-y-2">
                   <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Phone
                     Number</label>
-                  <input
+                  <input id="profile-phone"
                     class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary transition-all"
                     type="tel" value="+91 98765 43210" />
                 </div>
@@ -163,9 +160,9 @@
           </div>
           <div class="space-y-2">
             <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Professional Bio</label>
-            <textarea
+            <textarea id="profile-bio"
               class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary transition-all resize-none"
-              rows="4">Board-certified Senior Clinician with over 12 years of experience in internal medicine. Specialized in personalized patient care and clinical data analysis at Atelier Health.</textarea>
+              rows="4">Board-certified Senior Clinician with over 12 years of experience in internal medicine. Specialized in personalized patient care and clinical data analysis at MedCloud Clinic.</textarea>
           </div>
         </section>
         <!-- Account Security Section -->

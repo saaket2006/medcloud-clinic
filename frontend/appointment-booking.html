@@ -46,53 +46,57 @@
 <h2 class="font-headline font-bold text-lg">Booking Journey</h2>
 </div>
 <div class="space-y-6">
-<div class="flex gap-4 items-start relative">
-<div class="flex flex-col items-center">
-<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center z-10">
-<span class="material-symbols-outlined text-sm">check</span>
-</div>
-<div class="w-0.5 h-12 bg-secondary"></div>
-</div>
-<div class="pt-1">
-<p class="text-sm font-semibold text-on-surface">Specialty</p>
-<p class="text-xs text-on-surface-variant">Cardiology</p>
-</div>
-</div>
-<div class="flex gap-4 items-start relative">
-<div class="flex flex-col items-center">
-<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center z-10 shadow-lg ring-4 ring-primary-fixed">
-<span class="text-sm font-bold">2</span>
-</div>
-<div class="w-0.5 h-12 bg-outline-variant"></div>
-</div>
-<div class="pt-1">
-<p class="text-sm font-semibold text-primary">Doctor &amp; Time</p>
-<p class="text-xs text-on-surface-variant">Selection in progress...</p>
-</div>
-</div>
-<div class="flex gap-4 items-start relative">
-<div class="flex flex-col items-center">
-<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center z-10">
-<span class="text-sm font-bold">3</span>
-</div>
-<div class="w-0.5 h-12 bg-outline-variant"></div>
-</div>
-<div class="pt-1">
-<p class="text-sm font-semibold text-on-surface-variant">Clinical Details</p>
-<p class="text-xs text-on-surface-variant">Pending</p>
-</div>
-</div>
-<div class="flex gap-4 items-start">
-<div class="flex flex-col items-center">
-<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center z-10">
-<span class="text-sm font-bold">4</span>
-</div>
-</div>
-<div class="pt-1">
-<p class="text-sm font-semibold text-on-surface-variant">Final Review</p>
-<p class="text-xs text-on-surface-variant">Pending</p>
-</div>
-</div>
+  <!-- Step 1 Sidebar Item -->
+  <div id="journey-step-1" class="flex gap-4 items-start relative cursor-pointer">
+    <div class="flex flex-col items-center">
+      <div id="journey-step-1-badge" class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center z-10 transition-all duration-300">
+        <span class="text-sm font-bold">1</span>
+      </div>
+      <div id="journey-step-1-line" class="w-0.5 h-12 bg-outline-variant transition-colors duration-300"></div>
+    </div>
+    <div class="pt-1">
+      <p id="journey-step-1-title" class="text-sm font-semibold text-on-surface-variant">Specialty</p>
+      <p id="journey-step-1-sub" class="text-xs text-on-surface-variant">Pending</p>
+    </div>
+  </div>
+  <!-- Step 2 Sidebar Item -->
+  <div id="journey-step-2" class="flex gap-4 items-start relative cursor-pointer">
+    <div class="flex flex-col items-center">
+      <div id="journey-step-2-badge" class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center z-10 transition-all duration-300">
+        <span class="text-sm font-bold">2</span>
+      </div>
+      <div id="journey-step-2-line" class="w-0.5 h-12 bg-outline-variant transition-colors duration-300"></div>
+    </div>
+    <div class="pt-1">
+      <p id="journey-step-2-title" class="text-sm font-semibold text-on-surface-variant">Doctor &amp; Time</p>
+      <p id="journey-step-2-sub" class="text-xs text-on-surface-variant">Pending</p>
+    </div>
+  </div>
+  <!-- Step 3 Sidebar Item -->
+  <div id="journey-step-3" class="flex gap-4 items-start relative cursor-pointer">
+    <div class="flex flex-col items-center">
+      <div id="journey-step-3-badge" class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center z-10 transition-all duration-300">
+        <span class="text-sm font-bold">3</span>
+      </div>
+      <div id="journey-step-3-line" class="w-0.5 h-12 bg-outline-variant transition-colors duration-300"></div>
+    </div>
+    <div class="pt-1">
+      <p id="journey-step-3-title" class="text-sm font-semibold text-on-surface-variant">Clinical Details</p>
+      <p id="journey-step-3-sub" class="text-xs text-on-surface-variant">Pending</p>
+    </div>
+  </div>
+  <!-- Step 4 Sidebar Item -->
+  <div id="journey-step-4" class="flex gap-4 items-start cursor-pointer">
+    <div class="flex flex-col items-center">
+      <div id="journey-step-4-badge" class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center z-10 transition-all duration-300">
+        <span class="text-sm font-bold">4</span>
+      </div>
+    </div>
+    <div class="pt-1">
+      <p id="journey-step-4-title" class="text-sm font-semibold text-on-surface-variant">Final Review</p>
+      <p id="journey-step-4-sub" class="text-xs text-on-surface-variant">Pending</p>
+    </div>
+  </div>
 </div>
 </div>
 <!-- Contextual Help -->
@@ -106,141 +110,229 @@
 </aside>
 <!-- Main Content Area -->
 <section class="lg:col-span-9 space-y-8">
-<!-- Step Header -->
-<header class="flex flex-col gap-2">
-<span class="text-primary font-bold text-sm tracking-widest uppercase">Step 02 — Configuration</span>
-<h1 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight">Select Provider &amp; Schedule</h1>
-</header>
-<!-- Bento Grid: Doctor & Calendar -->
-<div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-<!-- Doctor Profile Selection (Left Column) -->
-<div class="md:col-span-2 space-y-4">
-<h3 class="font-label text-xs font-bold text-on-surface-variant tracking-wider uppercase px-2">Available Specialists</h3>
-<!-- Selected Doctor -->
-<div class="bg-surface-container-lowest p-5 rounded-xl ring-2 ring-primary relative group">
-<div class="absolute top-4 right-4 bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
-<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9
-                        </div>
-<div class="flex gap-4">
-<div class="w-16 h-16 rounded-xl bg-surface-container overflow-hidden">
-<img alt="Doctor Sangeeta" data-alt="professional headshot of a female doctor with a stethoscope, bright high-key lighting, medical office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzwxCp6bYRGjalVd8f6PmAzx96JhhGw7h6-edf4X3ZB6s4T4L60sZ8Q81lixJH_6b7jAZrk9hUIHRzAz3Yvko16V_FO3cTg7BKdUbPErgo98BIfwdz9rdx1wT9LKCCE_NUetWQHWYGg0r_xBHpQYjIR7m2FUzLYVRTEdSEv2hbo9eFwmTp5LQHzsOG3353DaFuTegNDqyNMKFniPcXVOORKwWn8OXSOVysuGSpB5aAzeVPqFj694t_JQVhjMBaBMxNRHBLuprReGVS"/>
-</div>
-<div>
-<h4 class="font-headline font-bold text-on-surface">Dr. Sangeeta Rao</h4>
-<p class="text-xs text-on-surface-variant mb-2">Senior Cardiologist</p>
-<div class="flex gap-2">
-<span class="text-[10px] bg-surface-container-low px-2 py-1 rounded font-medium">12y Exp</span>
-<span class="text-[10px] bg-surface-container-low px-2 py-1 rounded font-medium">AIIMS Delhi</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Alternate Doctor -->
-<div class="bg-white/40 hover:bg-white p-5 rounded-xl transition-all cursor-pointer group">
-<div class="flex gap-4">
-<div class="w-16 h-16 rounded-xl bg-surface-container overflow-hidden opacity-80 group-hover:opacity-100 transition-opacity">
-<img alt="Doctor Rajesh" data-alt="male doctor smiling in a professional clinic environment, clinical attire, warm natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4wWkv0bnYO6h2rigkDZ4SVsRse128PxRHWb5iLOfZAQn3cQCroASpi0yTawZKccsvh0QNS0Ez10vw611w-AdjxnJPegmUJ1mpXIEV9sbOnvUXKy6E6jxwUoi4xR8xurivHmrwG7UOPJDmEsPDzjecjmAuXlcBwpw50xNq7LshpvDkJ0SibLbKts_PmaSmMb8bKPpeVHnVrT9o3iy5L424hC_MrIYVqbCmGia2YgawIH3pHZH3Oru9eXPV0OEPGOq-oepRIF1Tlq5z"/>
-</div>
-<div>
-<h4 class="font-headline font-bold text-on-surface-variant group-hover:text-on-surface">Dr. Rajesh Iyer</h4>
-<p class="text-xs text-on-surface-variant">Interventional Cardiology</p>
-<div class="mt-2 flex items-center gap-1 text-[10px] text-on-surface-variant">
-<span class="material-symbols-outlined text-[14px]">star</span> 4.7 (120 reviews)
-                                </div>
-</div>
-</div>
-</div>
-</div>
-<!-- Calendar & Time Slots (Right Column) -->
-<div class="md:col-span-3 space-y-6">
-<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
-<div class="flex justify-between items-center mb-6">
-<h3 class="font-headline font-bold">November 2024</h3>
-<div class="flex gap-2">
-<button class="p-2 hover:bg-surface-container rounded-lg"><span class="material-symbols-outlined">chevron_left</span></button>
-<button class="p-2 hover:bg-surface-container rounded-lg"><span class="material-symbols-outlined">chevron_right</span></button>
-</div>
-</div>
-<!-- Mini Calendar View -->
-<div class="grid grid-cols-7 gap-2 text-center mb-8">
-<div class="text-[10px] font-bold text-on-surface-variant">S</div>
-<div class="text-[10px] font-bold text-on-surface-variant">M</div>
-<div class="text-[10px] font-bold text-on-surface-variant">T</div>
-<div class="text-[10px] font-bold text-on-surface-variant">W</div>
-<div class="text-[10px] font-bold text-on-surface-variant">T</div>
-<div class="text-[10px] font-bold text-on-surface-variant">F</div>
-<div class="text-[10px] font-bold text-on-surface-variant">S</div>
-<!-- Placeholder dates -->
-<div class="p-2 text-xs text-outline-variant">28</div>
-<div class="p-2 text-xs text-outline-variant">29</div>
-<div class="p-2 text-xs text-outline-variant">30</div>
-<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">1</button>
-<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">2</button>
-<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">3</button>
-<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">4</button>
-<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">5</button>
-<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">6</button>
-<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">7</button>
-<button class="p-2 text-xs font-bold bg-primary text-on-primary rounded-xl ring-2 ring-primary-fixed">8</button>
-<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">9</button>
-<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">10</button>
-<button class="p-2 text-xs font-semibold hover:bg-primary-fixed rounded-lg">11</button>
-</div>
-<div class="space-y-4">
-<div class="flex items-center justify-between">
-<p class="text-sm font-bold">Select Time Slot</p>
-<p class="text-xs text-secondary flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span> 4 slots left
-                                </p>
-</div>
-<div class="grid grid-cols-3 gap-3">
-<button class="py-3 px-4 rounded-xl border border-outline-variant hover:border-primary hover:text-primary transition-all text-sm font-medium">09:00 AM</button>
-<button class="py-3 px-4 rounded-xl bg-primary-fixed text-primary border-2 border-primary font-bold text-sm">10:30 AM</button>
-<button class="py-3 px-4 rounded-xl border border-outline-variant hover:border-primary hover:text-primary transition-all text-sm font-medium">11:15 AM</button>
-<button class="py-3 px-4 rounded-xl border border-outline-variant bg-surface-container-low text-outline cursor-not-allowed text-sm font-medium line-through">01:30 PM</button>
-<button class="py-3 px-4 rounded-xl border border-outline-variant hover:border-primary hover:text-primary transition-all text-sm font-medium">03:00 PM</button>
-<button class="py-3 px-4 rounded-xl border border-outline-variant hover:border-primary hover:text-primary transition-all text-sm font-medium">04:45 PM</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Additional Details Section -->
-<div class="bg-surface-container-low rounded-2xl p-8 space-y-6">
-<h3 class="font-headline font-bold text-xl">Clinical Intake Information</h3>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="space-y-2">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Reason for Visit</label>
-<textarea class="w-full bg-surface-container-lowest border-none rounded-xl p-4 text-sm focus:ring-2 focus:ring-primary h-32 resize-none" placeholder="Describe your symptoms or the reason for your consultation..."></textarea>
-</div>
-<div class="space-y-4">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Document Upload (Optional)</label>
-<div class="border-2 border-dashed border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center bg-white/50 hover:bg-white hover:border-primary transition-all cursor-pointer">
-<span class="material-symbols-outlined text-4xl text-primary mb-2">upload_file</span>
-<p class="text-sm font-bold text-on-surface">Drop medical history here</p>
-<p class="text-[10px] text-on-surface-variant mt-1">PDF, JPG or PNG (max. 10MB)</p>
-</div>
-<div class="flex items-center gap-3 bg-secondary-container/20 p-3 rounded-lg">
-<span class="material-symbols-outlined text-secondary">verified_user</span>
-<p class="text-[10px] text-on-secondary-container">Your data is encrypted with HIPAA-compliant protocols.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Bottom Action Bar -->
-<div class="flex justify-between items-center pt-4 border-t border-surface-container-highest">
-<button class="flex items-center gap-2 text-on-surface-variant font-bold text-sm hover:text-on-surface transition-colors">
-<span class="material-symbols-outlined">west</span> Back
-                </button>
-<div class="flex gap-4">
-<button class="px-8 py-4 rounded-xl font-bold text-primary hover:bg-primary-fixed transition-colors">Save Draft</button>
-<button class="px-10 py-4 bg-primary text-on-primary rounded-xl font-bold shadow-lg shadow-primary/20 hover:shadow-xl transition-all active:scale-95">Continue to Review</button>
-</div>
-</div>
+  <!-- Step 1: Specialty Selection -->
+  <div id="step-1-container" class="space-y-8">
+    <header class="flex flex-col gap-2">
+      <span class="text-primary font-bold text-sm tracking-widest uppercase">Step 01 — Specialty</span>
+      <h1 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight">Select Specialty</h1>
+    </header>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div id="specialty-card-cardiology" class="specialty-card p-6 bg-surface-container-lowest border-2 border-transparent rounded-2xl flex flex-col gap-4 cursor-pointer hover:shadow-ambient hover:border-primary/30 transition-all group">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">monitor_heart</span>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-on-surface">Cardiology</h3>
+          <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Consult with senior cardiologists for chest pain, cardiovascular checkups, and vascular health.</p>
+        </div>
+      </div>
+      <div id="specialty-card-psychiatry" class="specialty-card p-6 bg-surface-container-lowest border-2 border-transparent rounded-2xl flex flex-col gap-4 cursor-pointer hover:shadow-ambient hover:border-primary/30 transition-all group">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-on-surface">Psychiatry</h3>
+          <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Schedule consultations for neuro-psychology, anxiety, mental wellness, and clinical support.</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-end pt-4 border-t border-surface-container-highest">
+      <button type="button" id="btn-step1-continue" class="px-10 py-4 bg-primary text-on-primary rounded-xl font-bold shadow-lg shadow-primary/20 hover:shadow-xl transition-all active:scale-95">Continue to Scheduling</button>
+    </div>
+  </div>
+
+  <!-- Step 2: Select Provider & Schedule -->
+  <div id="step-2-container" class="space-y-8 hidden">
+    <header class="flex flex-col gap-2">
+      <span class="text-primary font-bold text-sm tracking-widest uppercase">Step 02 — Configuration</span>
+      <h1 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight">Select Provider &amp; Schedule</h1>
+    </header>
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+      <!-- Doctor Profile Selection (Left Column) -->
+      <div class="md:col-span-2 space-y-4">
+        <h3 class="font-label text-xs font-bold text-on-surface-variant tracking-wider uppercase px-2">Available Specialists</h3>
+        <!-- Selected Doctor -->
+        <div id="doctor-sangeeta" class="doctor-card bg-surface-container-lowest p-5 rounded-xl ring-2 ring-primary relative group cursor-pointer">
+          <div class="absolute top-4 right-4 bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
+            <span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9
+          </div>
+          <div class="flex gap-4">
+            <div class="w-16 h-16 rounded-xl bg-surface-container overflow-hidden">
+              <img alt="Doctor Sangeeta" data-alt="professional headshot of a female doctor with a stethoscope, bright high-key lighting, medical office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzwxCp6bYRGjalVd8f6PmAzx96JhhGw7h6-edf4X3ZB6s4T4L60sZ8Q81lixJH_6b7jAZrk9hUIHRzAz3Yvko16V_FO3cTg7BKdUbPErgo98BIfwdz9rdx1wT9LKCCE_NUetWQHWYGg0r_xBHpQYjIR7m2FUzLYVRTEdSEv2hbo9eFwmTp5LQHzsOG3353DaFuTegNDqyNMKFniPcXVOORKwWn8OXSOVysuGSpB5aAzeVPqFj694t_JQVhjMBaBMxNRHBLuprReGVS"/>
+            </div>
+            <div>
+              <h4 class="font-headline font-bold text-on-surface">Dr. Sangeeta Rao</h4>
+              <p class="text-xs text-on-surface-variant mb-2">Senior Cardiologist</p>
+              <div class="flex gap-2">
+                <span class="text-[10px] bg-surface-container-low px-2 py-1 rounded font-medium">12y Exp</span>
+                <span class="text-[10px] bg-surface-container-low px-2 py-1 rounded font-medium">AIIMS Delhi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Alternate Doctor -->
+        <div id="doctor-rajesh" class="doctor-card bg-white/40 hover:bg-white p-5 rounded-xl transition-all cursor-pointer group">
+          <div class="flex gap-4">
+            <div class="w-16 h-16 rounded-xl bg-surface-container overflow-hidden opacity-80 group-hover:opacity-100 transition-opacity">
+              <img alt="Doctor Rajesh" data-alt="male doctor smiling in a professional clinic environment, clinical attire, warm natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4wWkv0bnYO6h2rigkDZ4SVsRse128PxRHWb5iLOfZAQn3cQCroASpi0yTawZKccsvh0QNS0Ez10vw611w-AdjxnJPegmUJ1mpXIEV9sbOnvUXKy6E6jxwUoi4xR8xurivHmrwG7UOPJDmEsPDzjecjmAuXlcBwpw50xNq7LshpvDkJ0SibLbKts_PmaSmMb8bKPpeVHnVrT9o3iy5L424hC_MrIYVqbCmGia2YgawIH3pHZH3Oru9eXPV0OEPGOq-oepRIF1Tlq5z"/>
+            </div>
+            <div>
+              <h4 class="font-headline font-bold text-on-surface-variant group-hover:text-on-surface">Dr. Rajesh Iyer</h4>
+              <p class="text-xs text-on-surface-variant">Interventional Cardiology</p>
+              <div class="mt-2 flex items-center gap-1 text-[10px] text-on-surface-variant">
+                <span class="material-symbols-outlined text-[14px]">star</span> 4.7 (120 reviews)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Calendar & Time Slots (Right Column) -->
+      <div class="md:col-span-3 space-y-6">
+        <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+          <div class="flex justify-between items-center mb-6">
+            <h3 id="calendar-header-title" class="font-headline font-bold">November 2024</h3>
+            <div class="flex gap-2">
+              <button id="btn-prev-month" type="button" class="p-2 hover:bg-surface-container rounded-lg"><span class="material-symbols-outlined">chevron_left</span></button>
+              <button id="btn-next-month" type="button" class="p-2 hover:bg-surface-container rounded-lg"><span class="material-symbols-outlined">chevron_right</span></button>
+            </div>
+          </div>
+          <!-- Mini Calendar View -->
+          <div id="calendar-grid" class="grid grid-cols-7 gap-2 text-center mb-8">
+            <div class="text-[10px] font-bold text-on-surface-variant">S</div>
+            <div class="text-[10px] font-bold text-on-surface-variant">M</div>
+            <div class="text-[10px] font-bold text-on-surface-variant">T</div>
+            <div class="text-[10px] font-bold text-on-surface-variant">W</div>
+            <div class="text-[10px] font-bold text-on-surface-variant">T</div>
+            <div class="text-[10px] font-bold text-on-surface-variant">F</div>
+            <div class="text-[10px] font-bold text-on-surface-variant">S</div>
+            <!-- Generated dynamically via JS -->
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <p class="text-sm font-bold">Select Time Slot</p>
+              <p class="text-xs text-secondary flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span> <span id="slots-count-text">4 slots left</span>
+              </p>
+            </div>
+            <div id="time-slots-grid" class="grid grid-cols-3 gap-3">
+              <button type="button" class="py-3 px-4 rounded-xl border border-outline-variant hover:border-primary hover:text-primary transition-all text-sm font-medium">09:00 AM</button>
+              <button type="button" class="py-3 px-4 rounded-xl bg-primary-fixed text-primary border-2 border-primary font-bold text-sm">10:30 AM</button>
+              <button type="button" class="py-3 px-4 rounded-xl border border-outline-variant hover:border-primary hover:text-primary transition-all text-sm font-medium">11:15 AM</button>
+              <button type="button" class="py-3 px-4 rounded-xl border border-outline-variant bg-surface-container-low text-outline cursor-not-allowed text-sm font-medium line-through">01:30 PM</button>
+              <button type="button" class="py-3 px-4 rounded-xl border border-outline-variant hover:border-primary hover:text-primary transition-all text-sm font-medium">03:00 PM</button>
+              <button type="button" class="py-3 px-4 rounded-xl border border-outline-variant hover:border-primary hover:text-primary transition-all text-sm font-medium">04:45 PM</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Action Bar -->
+    <div class="flex justify-between items-center pt-4 border-t border-surface-container-highest">
+      <button type="button" id="btn-step2-back" class="flex items-center gap-2 text-on-surface-variant font-bold text-sm hover:text-on-surface transition-colors">
+        <span class="material-symbols-outlined">west</span> Back
+      </button>
+      <button type="button" id="btn-step2-continue" class="px-10 py-4 bg-primary text-on-primary rounded-xl font-bold shadow-lg shadow-primary/20 hover:shadow-xl transition-all active:scale-95">Continue to Intake</button>
+    </div>
+  </div>
+
+  <!-- Step 3: Clinical Intake Information -->
+  <div id="step-3-container" class="space-y-8 hidden">
+    <header class="flex flex-col gap-2">
+      <span class="text-primary font-bold text-sm tracking-widest uppercase">Step 03 — Intake Details</span>
+      <h1 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight">Clinical Intake Information</h1>
+    </header>
+    <div class="bg-surface-container-low rounded-2xl p-8 space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="space-y-2">
+          <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Reason for Visit</label>
+          <textarea id="booking-reason" class="w-full bg-surface-container-lowest border-none rounded-xl p-4 text-sm focus:ring-2 focus:ring-primary h-32 resize-none" placeholder="Describe your symptoms or the reason for your consultation..."></textarea>
+        </div>
+        <div class="space-y-4">
+          <label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Document Upload (Optional)</label>
+          <input type="file" id="booking-file-input" class="hidden" accept=".pdf,.jpg,.png" />
+          <div id="booking-dropzone" class="border-2 border-dashed border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center bg-white/50 hover:bg-white hover:border-primary transition-all cursor-pointer">
+            <span class="material-symbols-outlined text-4xl text-primary mb-2">upload_file</span>
+            <p id="upload-status-text" class="text-sm font-bold text-on-surface">Drop medical history here or click to upload</p>
+            <p class="text-[10px] text-on-surface-variant mt-1">PDF, JPG or PNG (max. 10MB)</p>
+          </div>
+          <!-- File Details Area -->
+          <div id="upload-details" class="hidden w-full flex items-center justify-between p-3 bg-secondary-container/20 border border-secondary/20 rounded-xl">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-secondary">description</span>
+              <div class="min-w-0">
+                <p id="upload-filename" class="text-xs font-bold text-on-surface truncate max-w-[200px]">file.pdf</p>
+                <p id="upload-filesize" class="text-[10px] text-on-surface-variant">1.2 MB</p>
+              </div>
+            </div>
+            <button type="button" id="btn-remove-file" class="text-error hover:scale-115 p-1 rounded transition-all">
+              <span class="material-symbols-outlined text-lg">close</span>
+            </button>
+          </div>
+          <div class="flex items-center gap-3 bg-secondary-container/20 p-3 rounded-lg">
+            <span class="material-symbols-outlined text-secondary">verified_user</span>
+            <p class="text-[10px] text-on-secondary-container">Your data is encrypted with HIPAA-compliant protocols.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Action Bar -->
+    <div class="flex justify-between items-center pt-4 border-t border-surface-container-highest">
+      <button type="button" id="btn-step3-back" class="flex items-center gap-2 text-on-surface-variant font-bold text-sm hover:text-on-surface transition-colors">
+        <span class="material-symbols-outlined">west</span> Back
+      </button>
+      <div class="flex gap-4">
+        <button id="btn-save-draft" type="button" class="px-8 py-4 rounded-xl font-bold text-primary hover:bg-primary-fixed transition-colors">Save Draft</button>
+        <button type="button" id="btn-step3-continue" class="px-10 py-4 bg-primary text-on-primary rounded-xl font-bold shadow-lg shadow-primary/20 hover:shadow-xl transition-all active:scale-95">Continue to Review</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 4: Final Review -->
+  <div id="step-4-container" class="space-y-8 hidden">
+    <header class="flex flex-col gap-2">
+      <span class="text-primary font-bold text-sm tracking-widest uppercase">Step 04 — Final Review</span>
+      <h1 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight">Finalize Consultation Details</h1>
+    </header>
+    <div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant/15 space-y-6 shadow-sm">
+      <h3 class="font-headline font-bold text-xl border-b border-outline-variant/20 pb-4">Consultation Overview</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-1">
+          <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Department Specialty</p>
+          <p id="review-specialty" class="text-sm font-bold text-on-surface">Cardiology</p>
+        </div>
+        <div class="space-y-1">
+          <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Selected Provider</p>
+          <p id="review-doctor" class="text-sm font-bold text-on-surface">Dr. Sangeeta Rao</p>
+        </div>
+        <div class="space-y-1">
+          <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Schedule Date &amp; Time</p>
+          <p id="review-datetime" class="text-sm font-bold text-secondary">November 8, 2024 at 10:30 AM</p>
+        </div>
+        <div class="space-y-1">
+          <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Clinical Reason</p>
+          <p id="review-reason" class="text-sm text-on-surface italic">"Regular consultation"</p>
+        </div>
+        <div class="space-y-1 md:col-span-2">
+          <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Attached Document</p>
+          <div id="review-document-container" class="flex items-center gap-2 text-xs font-semibold text-on-surface mt-1">
+            <span class="material-symbols-outlined text-sm text-secondary">description</span>
+            <span id="review-filename">No files attached</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Action Bar -->
+    <div class="flex justify-between items-center pt-4 border-t border-surface-container-highest">
+      <button type="button" id="btn-step4-back" class="flex items-center gap-2 text-on-surface-variant font-bold text-sm hover:text-on-surface transition-colors">
+        <span class="material-symbols-outlined">west</span> Back
+      </button>
+      <button type="button" id="btn-continue-review" class="px-10 py-4 bg-secondary text-on-secondary rounded-xl font-bold shadow-lg shadow-secondary/20 hover:shadow-xl transition-all active:scale-95">Confirm &amp; Schedule</button>
+    </div>
+  </div>
 </section>
 </main>
 <!-- Success Modal Overlay (Hidden by default, shown for conceptual design) -->
-<div class="fixed inset-0 z-[60] bg-on-background/40 backdrop-blur-sm flex items-center justify-center p-6 hidden">
+<div id="booking-success-modal" class="fixed inset-0 z-[60] bg-on-background/40 backdrop-blur-sm flex items-center justify-center p-6 hidden">
 <div class="bg-surface rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl">
 <div class="h-2 bg-secondary w-full"></div>
 <div class="p-10 text-center flex flex-col items-center">
@@ -248,7 +340,7 @@
 <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
 </div>
 <h2 class="font-headline text-3xl font-extrabold mb-2">Booking Confirmed!</h2>
-<p class="text-on-surface-variant text-sm mb-8">Your appointment with Dr. Sangeeta Rao is secured for November 8th, 2024.</p>
+<p id="booking-success-text" class="text-on-surface-variant text-sm mb-8">Your appointment with Dr. Sangeeta Rao is secured for November 8th, 2024.</p>
 <div class="w-full bg-surface-container-low rounded-2xl p-6 text-left space-y-4 mb-8">
 <div class="flex justify-between border-b border-outline-variant/20 pb-2">
 <span class="text-xs text-on-surface-variant">Reference ID</span>
@@ -264,10 +356,10 @@
 </div>
 </div>
 <div class="flex flex-col w-full gap-3">
-<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2">
+<button id="btn-add-calendar" class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2">
 <span class="material-symbols-outlined text-xl">event</span> Add to Calendar
                     </button>
-<button class="w-full py-4 text-on-surface-variant font-bold hover:bg-surface-container rounded-xl transition-colors">
+<button id="btn-view-dashboard" class="w-full py-4 text-on-surface-variant font-bold hover:bg-surface-container rounded-xl transition-colors">
                         View Appointment Dashboard
                     </button>
 </div>

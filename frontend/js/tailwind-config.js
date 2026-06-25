@@ -53,6 +53,7 @@ tailwind.config = {
       },
       fontFamily: {
         "headline": ["Manrope", "sans-serif"],
+        "manrope": ["Manrope", "sans-serif"],
         "body": ["Inter", "sans-serif"],
         "label": ["Inter", "sans-serif"]
       },
