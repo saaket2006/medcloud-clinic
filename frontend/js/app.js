@@ -10,6 +10,12 @@ const DASHBOARD_BY_ROLE = {
   PATIENT: 'patient-dashboard.html'
 };
 
+const DEFAULT_AVATARS = {
+  ADMIN: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBT_hvwq9TYIJqSJfUvJzjQDVCQ0GQw5TwXVgfC9vaHh8EXMEEkql0QQqArY4qHWmYo0yvKywCODYB4-YZuuJP0NbpnK6qq_bk1L5ARrTBYVOmRb7Ie3sqZ809mG3BCg_pjiSQuPZ9RO5Sa8J4sb0u1KLtjALZkY1VfazIhwMax7RxSGBNNKmXDTZPjrAjifLJVOs0bgzwr6P0Umtu_8jERCInKs1mOo2salH3aCSjFpv6fsTfPtqcrfkB0r543LrcL_-8A3c4-X60X',
+  DOCTOR: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAA2uDi2SitOnrv0PUyGaoYzsg8AJI7aB6VFnrnWfnZXXHaKH3rE8WQt1KLCiVMsSDbBJvE8DdR2o5Vi1zFQAM2ukgSeakviVzG3hbpwhQMrFSEOCqtkEhKwqY5WtvsQK6wNVBXFXc95vj1HR_0WCqnrU7jUOR9lxVjEQS5MUWpHsZ_umQXOfojweGrc3_bKCduC5tshXPoD26Kjs0ucxffPSh8XmGw28TDyMqzQoJVwHvOSgPwIQrUgHgfAYpOXCOAXDTUDkF87epH',
+  PATIENT: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD7FSXWB4hGykIbSfLVD9wS3Ae0JdfbykXJPEK63H_MsspTIwE7Wwu8sfCWHsUp4Hhxqd5uiOrNb4SPnX7sMb9N-dMweOAegXF7J5rMIOsqEJxji7Ta2X2F8LeTOENDQEdXUq2BSnvhegCznZ6nj2l-deVA3sIK0GfykooR7acOsfgx5xwI_m7DXvh6LnxIqCifJcClIBosWOVO14AvtJdnG4JukVn3b2_WI_FNEJHPFDEH031ekUDPb-rUwTRBh8kbhXLz8596Affu'
+};
+
 const PAGE_ACCESS = {
   'admin-dashboard.html': ['ADMIN'],
   'analytics.html': ['ADMIN'],
@@ -294,7 +300,7 @@ function shouldHideNavTarget(href, role, label) {
   if (href.includes('doctor-dashboard.html')) return !['ADMIN', 'DOCTOR'].includes(role);
   if (href.includes('patient-dashboard.html')) return role !== 'PATIENT';
   if (href.includes('appointment-booking.html')) {
-    return role === 'DOCTOR';
+    return ['DOCTOR', 'ADMIN'].includes(role);
   }
   return false;
 }
@@ -381,11 +387,7 @@ async function initDashboard() {
     userRoleElement.textContent = `${role} Access`;
   }
 
-  const DEFAULT_AVATARS = {
-    ADMIN: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBT_hvwq9TYIJqSJfUvJzjQDVCQ0GQw5TwXVgfC9vaHh8EXMEEkql0QQqArY4qHWmYo0yvKywCODYB4-YZuuJP0NbpnK6qq_bk1L5ARrTBYVOmRb7Ie3sqZ809mG3BCg_pjiSQuPZ9RO5Sa8J4sb0u1KLtjALZkY1VfazIhwMax7RxSGBNNKmXDTZPjrAjifLJVOs0bgzwr6P0Umtu_8jERCInKs1mOo2salH3aCSjFpv6fsTfPtqcrfkB0r543LrcL_-8A3c4-X60X',
-    DOCTOR: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAA2uDi2SitOnrv0PUyGaoYzsg8AJI7aB6VFnrnWfnZXXHaKH3rE8WQt1KLCiVMsSDbBJvE8DdR2o5Vi1zFQAM2ukgSeakviVzG3hbpwhQMrFSEOCqtkEhKwqY5WtvsQK6wNVBXFXc95vj1HR_0WCqnrU7jUOR9lxVjEQS5MUWpHsZ_umQXOfojweGrc3_bKCduC5tshXPoD26Kjs0ucxffPSh8XmGw28TDyMqzQoJVwHvOSgPwIQrUgHgfAYpOXCOAXDTUDkF87epH',
-    PATIENT: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD7FSXWB4hGykIbSfLVD9wS3Ae0JdfbykXJPEK63H_MsspTIwE7Wwu8sfCWHsUp4Hhxqd5uiOrNb4SPnX7sMb9N-dMweOAegXF7J5rMIOsqEJxji7Ta2X2F8LeTOENDQEdXUq2BSnvhegCznZ6nj2l-deVA3sIK0GfykooR7acOsfgx5xwI_m7DXvh6LnxIqCifJcClIBosWOVO14AvtJdnG4JukVn3b2_WI_FNEJHPFDEH031ekUDPb-rUwTRBh8kbhXLz8596Affu'
-  };
+
 
   const headerAvatar = document.getElementById('user-avatar') || document.querySelector('header img, nav img');
   if (headerAvatar && role && DEFAULT_AVATARS[role]) {
@@ -1184,7 +1186,7 @@ function initProfilePage() {
   let defaultPhone = '+91 98765 43212';
   let defaultBio = 'Active patient at MedCloud Clinic since 2021.';
   let medicalId = 'PT-108-92';
-  let imgSrc = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCrA1twh9WaIPDXz5if4fvtNZZ1WM3mS-UJFxcmSrd_t33V-l46nSkajC-HzvqQyPyQ6OBwIByKQ8J42_Cam-vdf3p_kiiUUgTc5d2OqNcqsMxwkd4l4k7FVZNejCOxrZhYRciVOt1T8tv8ddVQGLH7Vsbbu4DYHBKkKeDn5U4ibsr7X-MVwt6SYYXFQ4UfS-XSaHWmg3MALBIYRv6ED1CiMvRV40-pBErfCL0to8muoHNaldYZ4iOH5nm2eIcRhSRCToySU9I0_FO5';
+  let imgSrc = DEFAULT_AVATARS[role] || DEFAULT_AVATARS.PATIENT;
 
   if (role === 'ADMIN') {
     defaultName = 'Saaket Baldawa';
@@ -1198,7 +1200,6 @@ function initProfilePage() {
     defaultPhone = '+91 98765 43211';
     defaultBio = 'Senior Cardiologist with extensive clinical research experience.';
     medicalId = 'DR-442-12';
-    imgSrc = 'https://lh3.googleusercontent.com/aida-public/AB6AXuC4wWkv0bnYO6h2rigkDZ4SVsRse128PxRHWb5iLOfZAQn3cQCroASpi0yTawZKccsvh0QNS0Ez10vw611w-AdjxnJPegmUJ1mpXIEV9sbOnvUXKy6E6jxwUoi4xR8xurivHmrwG7UOPJDmEsPDzjecjmAuXlcBwpw50xNq7LshpvDkJ0SibLbKts_PmaSmMb8bKPpeVHnVrT9o3iy5L424hC_MrIYVqbCmGia2YgawIH3pHZH3Oru9eXPV0OEPGOq-oepRIF1Tlq5z';
   }
 
   const profileKey = `medcloud_profile_${email}`;
@@ -1216,7 +1217,7 @@ function initProfilePage() {
   if (profileEmailInput) profileEmailInput.value = savedProfile?.email || defaultEmail;
   if (profilePhoneInput) profilePhoneInput.value = savedProfile?.phone || defaultPhone;
   if (profileBioInput) profileBioInput.value = savedProfile?.bio || defaultBio;
-  if (profileImg && role !== 'ADMIN') {
+  if (profileImg) {
     profileImg.src = imgSrc;
     profileImg.alt = savedProfile?.name || defaultName;
   }
