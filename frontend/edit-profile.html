@@ -12,47 +12,63 @@
   <script src="js/app.js"></script>
 </head>
 <body class="bg-surface font-body text-on-surface antialiased">
-  <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none font-manrope antialiased">
-    <div class="flex justify-between items-center h-16 px-6 w-full">
-      <div class="flex items-center gap-8">
-        <a href="index.html" class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50">Clinical
-          Atelier</a>
-        <div class="hidden md:flex gap-6">
-          <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
-            href="admin-dashboard.html">Dashboard</a>
-          <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
-            href="patient-dashboard.html">Patients</a>
-          <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
-            href="appointment-booking.html">Schedules</a>
-          <a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
-            href="analytics.html">Analytics</a>
-        </div>
+  <header class="fixed top-0 left-64 right-0 h-16 px-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl z-30 flex items-center justify-between font-manrope">
+    <div class="flex items-center flex-1">
+      <div class="relative w-96">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+        <input class="w-full bg-slate-100/50 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search patients, records, or diagnostics..." type="text" />
       </div>
-      <div class="flex items-center gap-4">
-        <button
-          class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95 duration-200">
-          <span class="material-symbols-outlined text-slate-600">notifications</span>
+    </div>
+    <div class="flex items-center gap-6">
+      <div class="flex items-center gap-2">
+        <button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all relative">
+          <span class="material-symbols-outlined">notifications</span>
+          <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
         </button>
-        <button
-          class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all active:scale-95 duration-200">
-          <span class="material-symbols-outlined text-slate-600">cloud_done</span>
+        <button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all">
+          <span class="material-symbols-outlined">cloud_done</span>
         </button>
-        <div class="h-8 w-8 rounded-full bg-primary-fixed overflow-hidden ring-2 ring-surface">
-          <img alt="User Profile with Role Indicator" class="w-full h-full object-cover"
-            data-alt="professional portrait of a female doctor in medical scrubs with a confident and warm expression in a brightly lit clinic"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJmF4g70Ki6NHCKkrhEinuSQ8bXEMv8JqiCTr1GvnqW65m9_e1-bE56MXUuqEo1nUPPojuFXmF0E9LwLfNQAQ9Ji1IUfEOZdL0dvLI-FpbeKgMgxQlFWI2S8mCVA7FyvtjI-ai2a6iVjqlLRqW0POddHPoGhuIyJ8yqUHNuLtV2-a_rLizorHLRX3vAaj2CSXqoMQc4vA4uMTNMrQeX6ZOBAcQpuyzxV9cvaY7B51PO4Ukhyh2BHfCUnle2I15HhSmpr6up5mFddfs" />
+      </div>
+      <div class="h-8 w-[1px] bg-slate-200"></div>
+      <div class="flex items-center gap-3 relative group cursor-pointer">
+        <div class="text-right">
+          <p class="text-sm font-bold text-slate-900" id="user-name">Dr. Aryan Sharma</p>
+          <p class="text-[10px] text-slate-500 font-semibold uppercase tracking-tight" id="user-role">Lead Cardiologist</p>
+        </div>
+        <img class="w-10 h-10 rounded-full object-cover ring-2 ring-primary/10" id="user-avatar"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0GP71KboZ1C7m6iRJFW7sOJCxzuFEqhCpXDcBbeQosL9ITFvnjaheoC_YM0shjiLvBwIWn7VKnesH8PY96P_V2GQXV7QGYJewmrYse7ow1fFV96amgUfWIFyKXztbmSTua-Vr5KJfV80vcGtN9t8swhNc-aC07EoC-AUCS9BzGzkmGOz2_g-30phaiT-ojjB5oYP-qRMVKLTN0JlRLdzPGPF-NQwa5T_G1FUGFFRXuOlqc5rFo2V6VybXZeZWbNh-HyuhOmuTzeya" />
+        <!-- Dropdown Menu -->
+        <div
+          class="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right group-hover:translate-y-0 translate-y-2">
+          <a class="flex items-center px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors font-medium"
+            href="edit-profile.html">
+            <span class="material-symbols-outlined text-lg mr-3">person_edit</span>
+            <span>Edit Profile</span>
+          </a>
+          <div class="h-[1px] bg-slate-100 dark:bg-slate-700 my-1 mx-2"></div>
+          <a class="flex items-center px-4 py-2 text-sm text-error hover:bg-error/5 transition-colors font-medium cursor-pointer"
+            id="logout-btn">
+            <span class="material-symbols-outlined text-lg mr-3">logout</span>
+            <span>Logout</span>
+          </a>
         </div>
       </div>
     </div>
-    <div class="bg-slate-100/50 dark:bg-slate-800/50 h-[1px] w-full"></div>
-  </nav>
+  </header>
   <!-- SideNavBar Shell -->
   <aside
     class="h-screen w-64 fixed left-0 top-0 z-40 bg-slate-50 dark:bg-slate-950 flex flex-col py-6 space-y-1 font-manrope text-sm font-medium">
-    <a href="index.html" class="px-6 mb-8 mt-16 block cursor-pointer hover:opacity-80 transition-opacity">
-      <div class="text-lg font-black tracking-tighter text-blue-700 dark:text-blue-500">MedCloud Clinic</div>
-      <div class="text-xs text-on-surface-variant font-normal">Cloud Core v2.4</div>
-    </a>
+    <div class="px-6 mb-8">
+      <a href="index.html" class="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
+        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+          <span class="material-symbols-outlined" data-icon="clinical_notes">clinical_notes</span>
+        </div>
+        <div>
+          <h1 class="text-lg font-black tracking-tighter text-blue-700 dark:text-blue-500">MedCloud Clinic</h1>
+          <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Cloud Core v2.4</p>
+        </div>
+      </a>
+    </div>
     <nav class="flex-1 px-2 space-y-1">
       <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl transition-all duration-200 ease-in-out"
         href="admin-dashboard.html">

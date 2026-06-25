@@ -283,10 +283,19 @@ function checkAuth() {
 }
 
 function shouldHideNavTarget(href, role, label) {
+  const cleanLabel = (label || '').trim().toLowerCase();
+  
+  if (cleanLabel.includes('staff') || cleanLabel.includes('members') || cleanLabel.includes('management')) {
+    return role !== 'ADMIN';
+  }
+
   if (href.includes('admin-dashboard.html')) return role !== 'ADMIN' && !/dashboard|overview/i.test(label);
   if (href.includes('analytics.html')) return role !== 'ADMIN';
   if (href.includes('doctor-dashboard.html')) return !['ADMIN', 'DOCTOR'].includes(role);
   if (href.includes('patient-dashboard.html')) return role !== 'PATIENT';
+  if (href.includes('appointment-booking.html')) {
+    return role === 'DOCTOR';
+  }
   return false;
 }
 
@@ -312,10 +321,14 @@ function normalizeNavigation() {
 
   if (session.role !== 'PATIENT') {
     document.querySelectorAll('button, a').forEach(control => {
-      if (/new appointment|book consultation|confirm booking/i.test(control.textContent || '')) {
+      if (/new appointment|book consultation|confirm booking/i.test((control.textContent || '').trim())) {
         control.classList.add('hidden');
         control.setAttribute('aria-hidden', 'true');
         control.setAttribute('tabindex', '-1');
+        const parent = control.parentElement;
+        if (parent && (parent.classList.contains('px-4') || parent.classList.contains('px-6') || parent.classList.contains('py-4') || parent.classList.contains('mt-auto'))) {
+          parent.classList.add('hidden');
+        }
       }
     });
   }
@@ -366,6 +379,20 @@ async function initDashboard() {
 
   if (userRoleElement && role) {
     userRoleElement.textContent = `${role} Access`;
+  }
+
+  const DEFAULT_AVATARS = {
+    ADMIN: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBT_hvwq9TYIJqSJfUvJzjQDVCQ0GQw5TwXVgfC9vaHh8EXMEEkql0QQqArY4qHWmYo0yvKywCODYB4-YZuuJP0NbpnK6qq_bk1L5ARrTBYVOmRb7Ie3sqZ809mG3BCg_pjiSQuPZ9RO5Sa8J4sb0u1KLtjALZkY1VfazIhwMax7RxSGBNNKmXDTZPjrAjifLJVOs0bgzwr6P0Umtu_8jERCInKs1mOo2salH3aCSjFpv6fsTfPtqcrfkB0r543LrcL_-8A3c4-X60X',
+    DOCTOR: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAA2uDi2SitOnrv0PUyGaoYzsg8AJI7aB6VFnrnWfnZXXHaKH3rE8WQt1KLCiVMsSDbBJvE8DdR2o5Vi1zFQAM2ukgSeakviVzG3hbpwhQMrFSEOCqtkEhKwqY5WtvsQK6wNVBXFXc95vj1HR_0WCqnrU7jUOR9lxVjEQS5MUWpHsZ_umQXOfojweGrc3_bKCduC5tshXPoD26Kjs0ucxffPSh8XmGw28TDyMqzQoJVwHvOSgPwIQrUgHgfAYpOXCOAXDTUDkF87epH',
+    PATIENT: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD7FSXWB4hGykIbSfLVD9wS3Ae0JdfbykXJPEK63H_MsspTIwE7Wwu8sfCWHsUp4Hhxqd5uiOrNb4SPnX7sMb9N-dMweOAegXF7J5rMIOsqEJxji7Ta2X2F8LeTOENDQEdXUq2BSnvhegCznZ6nj2l-deVA3sIK0GfykooR7acOsfgx5xwI_m7DXvh6LnxIqCifJcClIBosWOVO14AvtJdnG4JukVn3b2_WI_FNEJHPFDEH031ekUDPb-rUwTRBh8kbhXLz8596Affu'
+  };
+
+  const headerAvatar = document.getElementById('user-avatar') || document.querySelector('header img, nav img');
+  if (headerAvatar && role && DEFAULT_AVATARS[role]) {
+    headerAvatar.src = DEFAULT_AVATARS[role];
+    if (userNameElement) {
+      headerAvatar.alt = userNameElement.textContent + ' Profile';
+    }
   }
 
   const appointmentsContainer = document.getElementById('appointments-list');
@@ -1232,6 +1259,154 @@ function initProfilePage() {
   }
 }
 
+function initDoctorDashboard() {
+  const newPrescriptionBtn = document.getElementById('btn-new-prescription');
+  const prescriptionModal = document.getElementById('prescription-modal');
+  const closePrescriptionBtn = document.getElementById('btn-close-prescription');
+  const cancelPrescriptionBtn = document.getElementById('btn-cancel-prescription');
+  const prescriptionForm = document.getElementById('prescription-form');
+
+  if (newPrescriptionBtn && prescriptionModal) {
+    newPrescriptionBtn.addEventListener('click', () => {
+      prescriptionModal.classList.remove('hidden');
+    });
+  }
+
+  function hidePrescriptionModal() {
+    if (prescriptionModal) {
+      prescriptionModal.classList.add('hidden');
+    }
+    if (prescriptionForm) {
+      prescriptionForm.reset();
+    }
+  }
+
+  if (closePrescriptionBtn) {
+    closePrescriptionBtn.addEventListener('click', hidePrescriptionModal);
+  }
+
+  if (cancelPrescriptionBtn) {
+    cancelPrescriptionBtn.addEventListener('click', hidePrescriptionModal);
+  }
+
+  if (prescriptionModal) {
+    prescriptionModal.addEventListener('click', (e) => {
+      if (e.target === prescriptionModal) {
+        hidePrescriptionModal();
+      }
+    });
+  }
+
+  if (prescriptionForm) {
+    prescriptionForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const medication = document.getElementById('prescription-medication')?.value.trim();
+      const dosage = document.getElementById('prescription-dosage')?.value.trim();
+      const duration = document.getElementById('prescription-duration')?.value.trim();
+      const frequency = document.getElementById('prescription-frequency')?.value;
+
+      if (!medication || !dosage || !duration || !frequency) {
+        showNotification('Please fill in all required fields.', 'error');
+        return;
+      }
+
+      // Decrement "Pending Prescriptions" count
+      const pendingCountEl = document.getElementById('pending-prescriptions-count');
+      if (pendingCountEl) {
+        let currentCount = parseInt(pendingCountEl.textContent, 10);
+        if (!isNaN(currentCount) && currentCount > 0) {
+          pendingCountEl.textContent = String(currentCount - 1).padStart(2, '0');
+        }
+      }
+
+      hidePrescriptionModal();
+      showNotification(`Prescription for ${medication} successfully issued for Asha Devi!`, 'success');
+    });
+  }
+
+  // 1. Search Bar Logic
+  const searchInput = document.getElementById('doctor-search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      const rows = document.querySelectorAll('table tbody tr');
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        if (row.id === 'no-results-row') return;
+        const text = row.textContent.toLowerCase();
+        if (text.includes(query)) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      let noResultsRow = document.getElementById('no-results-row');
+      if (visibleCount === 0) {
+        if (!noResultsRow) {
+          noResultsRow = document.createElement('tr');
+          noResultsRow.id = 'no-results-row';
+          noResultsRow.innerHTML = `
+            <td colspan="5" class="px-6 py-8 text-center text-slate-500 font-medium font-manrope text-sm">
+              <span class="material-symbols-outlined text-4xl block mb-2 text-slate-300">search_off</span>
+              No patients, records, or diagnostics found matching "${escapeHtml(query)}"
+            </td>
+          `;
+          document.querySelector('table tbody').appendChild(noResultsRow);
+        } else {
+          noResultsRow.querySelector('td').innerHTML = `
+            <span class="material-symbols-outlined text-4xl block mb-2 text-slate-300">search_off</span>
+            No patients, records, or diagnostics found matching "${escapeHtml(query)}"
+          `;
+          noResultsRow.style.display = '';
+        }
+      } else if (noResultsRow) {
+        noResultsRow.style.display = 'none';
+      }
+    });
+  }
+
+  // 2. Notifications Dropdown Logic
+  const notificationsBtn = document.getElementById('btn-notifications');
+  const notificationsDropdown = document.getElementById('notifications-dropdown');
+  const clearNotificationsBtn = document.getElementById('btn-clear-notifications');
+  const notificationBadge = document.getElementById('notification-badge');
+  const notificationsListContainer = document.getElementById('notifications-list-container');
+
+  if (notificationsBtn && notificationsDropdown) {
+    notificationsBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      notificationsDropdown.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!notificationsDropdown.classList.contains('hidden') && !notificationsDropdown.contains(e.target) && e.target !== notificationsBtn) {
+        notificationsDropdown.classList.add('hidden');
+      }
+    });
+  }
+
+  if (clearNotificationsBtn) {
+    clearNotificationsBtn.addEventListener('click', () => {
+      if (notificationBadge) {
+        notificationBadge.classList.add('hidden');
+      }
+      if (notificationsListContainer) {
+        notificationsListContainer.innerHTML = `
+          <div class="text-center py-6 text-slate-400 font-manrope">
+            <span class="material-symbols-outlined text-3xl mb-1 text-slate-300 block">notifications_off</span>
+            No notifications
+          </div>
+        `;
+      }
+      showNotification('Notifications cleared.', 'info');
+    });
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   checkAuth();
   normalizeNavigation();
@@ -1292,6 +1467,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initProfilePage();
   } else if (currentPage === 'appointment-booking.html') {
     initBookingPage();
+  } else if (currentPage === 'doctor-dashboard.html') {
+    initDoctorDashboard();
   }
 
   const cardiologyWidget = document.getElementById('widget-cardiology');

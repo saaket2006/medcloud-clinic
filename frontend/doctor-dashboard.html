@@ -82,17 +82,55 @@
         <div class="relative w-96">
           <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg"
             data-icon="search">search</span>
-          <input
+          <input id="doctor-search-input"
             class="w-full bg-slate-100/50 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all"
             placeholder="Search patients, records, or diagnostics..." type="text" />
         </div>
       </div>
       <div class="flex items-center gap-6">
         <div class="flex items-center gap-2">
-          <button class="p-2 text-slate-500 hover:bg-slate-50 rounded-lg transition-all relative">
-            <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-            <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
-          </button>
+          <div class="relative">
+            <button id="btn-notifications" class="p-2 text-slate-500 hover:bg-slate-50 rounded-lg transition-all relative">
+              <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+              <span id="notification-badge" class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+            </button>
+            <!-- Notifications Dropdown -->
+            <div id="notifications-dropdown" class="absolute top-full right-0 mt-2 w-80 bg-white rounded-2xl shadow-xl border border-slate-100 py-4 px-6 z-50 hidden animate-in fade-in slide-in-from-top-2 duration-200">
+              <div class="flex justify-between items-center pb-3 border-b border-slate-100 mb-3 font-manrope">
+                <h4 class="font-bold text-sm text-slate-900">Notifications</h4>
+                <button id="btn-clear-notifications" class="text-xs text-primary font-semibold hover:underline">Clear all</button>
+              </div>
+              <div class="space-y-4 max-h-64 overflow-y-auto font-manrope" id="notifications-list-container">
+                <!-- Item 1 -->
+                <div class="flex gap-3 text-xs">
+                  <div class="w-2 h-2 rounded-full bg-primary mt-1.5 flex-shrink-0"></div>
+                  <div>
+                    <p class="font-bold text-slate-950">Urgent prescription approval</p>
+                    <p class="text-slate-500 mt-0.5">Patient Asha Devi is waiting for Hypertension stage 2 meds approval.</p>
+                    <p class="text-[10px] text-slate-400 mt-1">10 mins ago</p>
+                  </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="flex gap-3 text-xs">
+                  <div class="w-2 h-2 rounded-full bg-primary mt-1.5 flex-shrink-0"></div>
+                  <div>
+                    <p class="font-bold text-slate-950">New lab results uploaded</p>
+                    <p class="text-slate-500 mt-0.5">Ananya Kulkarni's blood count report is now available.</p>
+                    <p class="text-[10px] text-slate-400 mt-1">1 hour ago</p>
+                  </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="flex gap-3 text-xs">
+                  <div class="w-2 h-2 rounded-full bg-slate-300 mt-1.5 flex-shrink-0"></div>
+                  <div>
+                    <p class="font-bold text-slate-800">System maintenance scheduled</p>
+                    <p class="text-slate-500 mt-0.5">Database sync will occur at 11:00 PM tonight.</p>
+                    <p class="text-[10px] text-slate-400 mt-1">4 hours ago</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <button class="p-2 text-slate-500 hover:bg-slate-50 rounded-lg transition-all">
             <span class="material-symbols-outlined" data-icon="cloud_done">cloud_done</span>
           </button>
@@ -163,7 +201,7 @@
           <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm relative overflow-hidden group">
             <div class="relative z-10">
               <p class="text-slate-500 text-xs font-bold uppercase tracking-widest mb-1">Pending Prescriptions</p>
-              <h3 class="text-4xl font-black text-slate-900">04</h3>
+              <h3 id="pending-prescriptions-count" class="text-4xl font-black text-slate-900">04</h3>
               <p class="text-error text-xs font-bold mt-4 flex items-center gap-1">
                 <span class="material-symbols-outlined text-xs" data-icon="priority_high">priority_high</span>
                 2 Urgent approvals
@@ -338,7 +376,6 @@
         <div class="glass-card bg-white border border-white p-6 rounded-2xl shadow-xl shadow-slate-200/50">
           <div class="flex items-center justify-between mb-6">
             <span class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Last Patient</span>
-            <button class="text-primary font-bold text-xs">View Full File</button>
           </div>
           <div class="flex flex-col items-center text-center">
             <div class="relative">
@@ -391,7 +428,7 @@
             </div>
           </div>
           <div class="mt-6">
-            <button
+            <button id="btn-new-prescription"
               class="w-full py-3 bg-slate-900 text-white rounded-xl text-sm font-bold flex items-center justify-center gap-2 hover:bg-slate-800 transition-all">
               <span class="material-symbols-outlined text-lg" data-icon="pill">pill</span>
               New Prescription
@@ -419,5 +456,63 @@
     class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center active:scale-95 transition-all z-50">
     <span class="material-symbols-outlined text-2xl" data-icon="add">add</span>
   </button>
+  <!-- New Prescription Modal -->
+  <div id="prescription-modal" class="fixed inset-0 z-[60] bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-6 hidden">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-100 dark:border-slate-800 animate-in fade-in zoom-in-95 duration-200">
+      <div class="h-2 bg-primary w-full"></div>
+      <div class="p-8">
+        <div class="flex justify-between items-center mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+              <span class="material-symbols-outlined" data-icon="pill">pill</span>
+            </div>
+            <div>
+              <h3 class="font-headline font-bold text-lg text-slate-900 dark:text-white">New Prescription</h3>
+              <p class="text-xs text-slate-500 font-medium">For Asha Devi</p>
+            </div>
+          </div>
+          <button id="btn-close-prescription" type="button" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+
+        <form id="prescription-form" class="space-y-4">
+          <div class="space-y-1">
+            <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Medication Name</label>
+            <input type="text" id="prescription-medication" class="w-full bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="e.g. Lisinopril, Metformin" required />
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-1">
+              <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Dosage</label>
+              <input type="text" id="prescription-dosage" class="w-full bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="e.g. 10mg, 500mg" required />
+            </div>
+            <div class="space-y-1">
+              <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Duration</label>
+              <input type="text" id="prescription-duration" class="w-full bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="e.g. 7 days, 30 days" required />
+            </div>
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Frequency</label>
+            <select id="prescription-frequency" class="w-full bg-slate-50 dark:bg-slate-800 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 transition-all" required>
+              <option value="">Select Frequency</option>
+              <option value="Once daily">Once daily</option>
+              <option value="Twice daily">Twice daily</option>
+              <option value="Three times daily">Three times daily</option>
+              <option value="Every 4 hours as needed">Every 4 hours as needed</option>
+              <option value="Before meals">Before meals</option>
+            </select>
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Special Instructions (Optional)</label>
+            <textarea id="prescription-instructions" rows="3" class="w-full bg-slate-50 dark:bg-slate-800 border-none rounded-xl p-4 text-sm focus:ring-2 focus:ring-primary/20 transition-all resize-none" placeholder="e.g. Take with water, swallow whole..."></textarea>
+          </div>
+          <div class="pt-4 flex gap-3">
+            <button type="button" id="btn-cancel-prescription" class="flex-1 py-3 text-sm font-bold text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all">Cancel</button>
+            <button type="submit" class="flex-1 py-3 text-sm font-bold bg-primary text-on-primary rounded-xl shadow-lg shadow-primary/20 hover:opacity-90 active:scale-95 transition-all">Issue Prescription</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
